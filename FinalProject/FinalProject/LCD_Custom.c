@@ -6,9 +6,11 @@
 unsigned char custom_0[] = {0x1F, 0x0E, 0x04, 0x04, 0x0E, 0x1F, 0x0E, 0x04,};
 // Byte sequence for custom char 1 (square root)
 unsigned char custom_1[] = {0x03, 0x04, 0x04, 0x04, 0x04, 0x04, 0x14, 0x08,};
-	
-unsigned char custom_2[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,};
-unsigned char custom_3[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,};
+// Byte sequence for custom char 2 (bold arrow)
+unsigned char custom_2[] = {0x00, 0x0C, 0x0E, 0x0F, 0x0F, 0x0E, 0x0C, 0x00,};
+// Byte sequence for custom char 3 (trophy)
+unsigned char custom_3[] = {0x00, 0x1F, 0x0E, 0x0E, 0x04, 0x04, 0x0E, 0x1F,};
+// Unused
 unsigned char custom_4[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,};
 unsigned char custom_5[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,};
 unsigned char custom_6[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,};
@@ -33,15 +35,22 @@ void Custom_LCD_Init(void) {
 			LCD_WriteData(customCharData[i][j]);
 		}
 	}
-	
+	delay_ms(10);
+}
+
+/* Prints the number num to the LCD display, starting at the current cursor location */
+void Custom_LCD_WriteNum(unsigned short num) {
+	unsigned char numDigits = GetNumDigits_us(num);
+	unsigned char i;
+	unsigned char str[numDigits];
+	IntToString(num, str);
 	/*
-	unsigned char i,j;
-	for (i = 0; i < 2; i++) {
-		//LCD_WriteCommand(0x40 + 8*i);
-		for (j = 0; j < 8; j++) {
-			LCD_WriteData(customCharData[i][j]);
-		}
+	for (i = 0; i < numDigits; i++) {
+		str[numDigits - (i + 1)] = (num % 10) + '0';
+		num /= 10;
 	}
 	*/
-	delay_ms(10);
+	for (i = 0; i < numDigits; i++) {
+		LCD_WriteData(str[i]);
+	}
 }

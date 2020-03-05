@@ -22,19 +22,21 @@ EECR	// Control reg (8-bit)
 #define SET_EEWE() (EECR |= 0x02)
 #define SET_EERE() (EECR |= 0x01)
 
+/* Writes the data passed in the second argument to the EEPROM address passed in the first argument */
 void EEPROM_StoreByte(unsigned short address, unsigned char data) {
-	while(EEWE) {}
+	while(EEWE) {}		// Do not attempt to write data while a write task is still in progress
 	EEAR = address;
 	EEDR = data;
-	SET_EEMWE();
-	SET_EEWE();
+	SET_EEMWE();		// Master write-enable
+	SET_EEWE();			// Write-enable
 }
 
+/* Reads the data in the EEPROM address passed in the argument and returns that byte */
 unsigned char EEPROM_ReadByte(unsigned short address) {
-	while(EEWE) {}
+	while(EEWE) {}		// Do not attempt to read data while a write task is still in progress
 	EEAR = address;
 	SET_EERE();
 	delay_ms(1);
-	unsigned char data = EEDR;
+	unsigned char data = EEDR;	// Read from data register after waiting 1ms for data to be fetched
 	return data;
 }

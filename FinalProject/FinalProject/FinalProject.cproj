@@ -166,10 +166,31 @@
     <Compile Include="EEPROM.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="GameMaster.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="generalUtils.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="generalUtils.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="inputHandler.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="io.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="io.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="keypad.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="keypadCtrl.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCDCtrl.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="LCD_Custom.c">
@@ -179,6 +200,42 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="menuCtrl.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nokia5110.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nokia5110.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="nokia5110_chars.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="PWM.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="PWM.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="queue.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="random.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="random.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="scheduler.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="seedChange.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="timer.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
