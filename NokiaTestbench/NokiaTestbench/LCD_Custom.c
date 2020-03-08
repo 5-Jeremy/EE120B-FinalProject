@@ -28,9 +28,9 @@ void Custom_LCD_Init(void) {
 	LCD_WriteCommand(0x01);
 	delay_ms(10);
 	// Load custom character data
-	LCD_WriteCommand(0x40);
-	unsigned char CGRAM_addr = 0x40;
 	unsigned char i,j;
+	unsigned char CGRAM_addr = 0x40;
+	//for (i = 0; i < sizeof(customCharData)/8; i++) {
 	for (i = 0; i < 8; i++) {
 		for (j = 0; j < 8; j++) {
 			LCD_WriteCommand(CGRAM_addr++);

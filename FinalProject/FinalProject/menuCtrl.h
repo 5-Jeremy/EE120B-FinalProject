@@ -31,23 +31,28 @@ int MC_Tick(int state) {
 			}
 			break;
 		case MC_prepareGame :
-			if (lastPressed == '#' && keyDown) {
-				state = MC_gameInProgress;
-				newGameSelected = 0;
-				gameInProgress = 1;
-			}
-			else {
-				state = MC_prepareGame;
+			if (!QueueIsEmpty(menuQ)) {
+				if (QueueDequeue(menuQ) == '#') {
+					state = MC_gameInProgress;
+					newGameSelected = 0;
+					gameInProgress = 1;
+					screen = screen_inGame;
+				}
+				else {
+					state = MC_prepareGame;
+				}
 			}
 			break;
 		case MC_gameInProgress :
-			if (lastPressed == '*' && keyDown) {
-				state = MC_gameEnd;
-				gameInProgress = 0;
-				
-			}
-			else {
-				state = MC_gameInProgress;
+			if (!QueueIsEmpty(menuQ)) {
+				if (QueueDequeue(menuQ) == 'A') {
+					state = MC_gameEnd;
+					gameInProgress = 0;
+					screen = screen_mainMenu;
+				}
+				else {
+					state = MC_gameInProgress;
+				}
 			}
 			break;
 		case MC_gameEnd :
@@ -69,6 +74,16 @@ void PrintDifficultyIdentifier() {
 		case EASY : nokia_lcd_write_char(0x45,1); break;
 		case MEDIUM : nokia_lcd_write_char(0x4D,1); break;
 		case HARD : nokia_lcd_write_char(0x48,1); break;
+	}
+}
+
+void Nokia_WriteNum(unsigned short num) {
+	unsigned char numDigits = GetNumDigits_us(num);
+	unsigned char i;
+	unsigned char str[numDigits];
+	IntToString(num, str);
+	for (i = 0; i < numDigits; i++) {
+		nokia_lcd_write_char(str[i],1);
 	}
 }
 
@@ -97,6 +112,19 @@ void WriteScreen() {
 			nokia_lcd_write_string("Press # key to",1);
 			nokia_lcd_set_cursor(0,40);
 			nokia_lcd_write_string("begin",1);
+			break;
+		case screen_inGame :
+			nokia_lcd_set_cursor(0,0);				// Current question number
+			nokia_lcd_write_string("Question ",1);
+			Nokia_WriteNum(1);
+			nokia_lcd_write_string("/",1);
+			Nokia_WriteNum(1);
+			nokia_lcd_set_cursor(0,10);				// Current score
+			nokia_lcd_write_string("Score: ",1);
+			Nokia_WriteNum(score);
+			nokia_lcd_set_cursor(0,20);
+			nokia_lcd_write_string("Lives: ",1);	// Lives remaining
+			Nokia_WriteNum(3);
 			break;
 		default: break;
 	}

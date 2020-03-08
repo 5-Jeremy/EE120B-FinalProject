@@ -29,8 +29,8 @@ unsigned char GetBit(unsigned char port, unsigned char number)
 }
 
 // Keypad Setup Values
-#define KEYPADPORT PORTA
-#define KEYPADPIN  PINA
+#define KEYPADPORT PORTD
+#define KEYPADPIN  PIND
 #define ROW1 0
 #define ROW2 1
 #define ROW3 2

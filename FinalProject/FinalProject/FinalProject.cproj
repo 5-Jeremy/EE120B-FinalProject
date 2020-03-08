@@ -160,6 +160,9 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="displayAnswer.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="EEPROM.c">
       <SubType>compile</SubType>
     </Compile>
@@ -188,9 +191,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="keypadCtrl.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="LCDCtrl.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="LCD_Custom.c">
