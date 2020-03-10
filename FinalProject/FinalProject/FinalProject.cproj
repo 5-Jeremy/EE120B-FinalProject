@@ -160,6 +160,9 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="buzzerTask.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="displayAnswer.h">
       <SubType>compile</SubType>
     </Compile>
@@ -199,6 +202,9 @@
     <Compile Include="LCD_Custom.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="LEDArray.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
@@ -230,6 +236,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="scheduler.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="scoreDisplay.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="seedChange.h">

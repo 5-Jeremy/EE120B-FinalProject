@@ -26,3 +26,22 @@ void IntToString(unsigned short num, unsigned char *str) {
 		num /= 10;
 	}
 }
+
+unsigned char GetNumDigits_ul(unsigned long num) {
+	unsigned char i;
+	i = 1;
+	while (num > 9) {
+		i++;
+		num /= 10;
+	}
+	return i;
+}
+
+void IntToString_ul(unsigned long num, unsigned char *str) {
+	unsigned char numDigits = GetNumDigits_ul(num);
+	unsigned char i;
+	for (i = 0; i < numDigits; i++) {
+		str[numDigits - (i + 1)] = (num % 10) + '0';
+		num /= 10;
+	}
+}

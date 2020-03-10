@@ -2,6 +2,8 @@
 #define DISPLAYANSWER_H_
 // Contains the functions used by the displayAnswer task
 
+#define ARROW_CODE 2
+
 enum DA_states {DA_start, DA_main};
 int DA_Tick(int state) {
 	static unsigned long lastAnswer;	// Used to track changes in user input
@@ -14,11 +16,11 @@ int DA_Tick(int state) {
 			break;
 		case DA_main : 
 			if(gameInProgress) {
-				i = ++i % 20;
+				i = ++i % 50;
 				unsigned char nd = isInputAvailable ? GetNumDigits_us(currAnswer) : 0;
 				unsigned char arrowLoc = 32-nd;
 				LCD_Cursor(arrowLoc);
-				if (i <= 10) LCD_WriteData(2);	// Controls arrow blinking
+				if (i <= 25) LCD_WriteData(ARROW_CODE);	// Controls arrow blinking
 				else LCD_WriteData(' ');
 				if (isInputAvailable) {		
 					if ((currAnswer != lastAnswer) || (currAnswer == 0)) {	// Only re-print the answer if it has been changed

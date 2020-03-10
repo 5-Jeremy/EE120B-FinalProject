@@ -19,7 +19,8 @@ main.d main.o: .././main.c \
  .././nokia5110.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
  .././keypadCtrl.h .././inputHandler.h .././seedChange.h .././menuCtrl.h \
- .././GameMaster.h .././displayAnswer.h
+ .././GameMaster.h .././displayAnswer.h .././scoreDisplay.h \
+ .././buzzerTask.h .././LEDArray.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -84,3 +85,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././GameMaster.h:
 
 .././displayAnswer.h:
+
+.././scoreDisplay.h:
+
+.././buzzerTask.h:
+
+.././LEDArray.h:

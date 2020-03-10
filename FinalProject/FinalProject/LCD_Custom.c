@@ -57,3 +57,13 @@ void Custom_LCD_WriteNum(unsigned short num) {
 		LCD_WriteData(str[i]);
 	}
 }
+
+void Custom_LCD_WriteNum_ul(unsigned long num) {
+	unsigned char numDigits = GetNumDigits_ul(num);
+	unsigned char i;
+	unsigned char str[numDigits];
+	IntToString_ul(num, str);
+	for (i = 0; i < numDigits; i++) {
+		LCD_WriteData(str[i]);
+	}
+}
