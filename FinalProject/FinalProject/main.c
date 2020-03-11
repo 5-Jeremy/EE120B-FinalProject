@@ -52,8 +52,8 @@ unsigned char gameFin;			// <gameMaster> Indicates that the game has just ended
 unsigned char gameLost;			// <gameMaster> Indicates that the game was lost (score will not be saved)
 unsigned short timeLeft;		// <gameMaster> The time remaining to answer the current question
 unsigned char screenUpdate;		// <gameMaster> Indicates that the Nokia LCD's screen needs to be updated during
-unsigned char wrongAnswer;		// <gameMaster> Indicates that an incorrect answer was given
 									// a game, allowing the screen to only be redrawn when necessary
+									
 // Shared variables used for interacting with the EEPROM
 unsigned char scoreReadNum;		// <menuCtrl> The number of the score to be displayed (1 is the highest); 0 if no read needed
 char scoreWritten;				// <scoreDisplay> Indicates whether or not the score was saved at the end of a game; 
@@ -67,6 +67,7 @@ unsigned char inScoreMenu;		// <menuCtrl> Indicates whether or not the highscore
 // -------- Queues -------------
 Queue menuQ;	// inputHnadler -> menuCtrl
 Queue gameQ;	// inputHandler -> GameMaster
+Queue buzzQ;	// GameMaster	-> buzzerTask
 // -------- End Queues -------------
 
 // Task Functions
@@ -89,6 +90,7 @@ int main(void)
 	
 	menuQ = QueueInit(1);
 	gameQ = QueueInit(1);
+	buzzQ = QueueInit(1);
 	
 	static task task0,task1,task2,task3,task4,task5,task6,task7,task8;
 	task* tasks[] = {&task0,&task1,&task2,&task3,&task4,&task5,&task6,&task7,&task8};

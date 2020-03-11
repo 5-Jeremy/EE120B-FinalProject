@@ -35,6 +35,7 @@ int GM_Tick(int state) {
 	switch(state) {
 		case GM_start :
 			state = GM_wait;
+			QueueMakeEmpty(buzzQ);
 			score = 0;
 			timeLeft = 0;
 			totalTime = 0;
@@ -46,7 +47,6 @@ int GM_Tick(int state) {
 			msg_disp_Cnt = 0;
 			gameFin = 0;
 			tryWriteScore = 0;
-			wrongAnswer = 0;
 			numLives = 0;
 			gameLost = 0;
 			break;
@@ -73,9 +73,9 @@ int GM_Tick(int state) {
 			screenUpdate = 0;
 			currAnswer = 0;
 			numTries = 0;
+			QueueMakeEmpty(buzzQ);
 			break;
 		case GM_waitForAnswer :
-			wrongAnswer = 0;
 			if (timeLeft > 0) {
 				if (!QueueIsEmpty(gameQ)) {
 					unsigned char newInput = QueueDequeue(gameQ);
@@ -115,8 +115,10 @@ int GM_Tick(int state) {
 								screenUpdate = 1;
 							}
 						}
-						else numTries++;
-						wrongAnswer = 1;
+						else {
+							numTries++;
+							QueueEnqueue(buzzQ,0);	// Send a dummy message to indicate a wrong answer
+						}
 					}
 					else if (IsDigit(newInput)) {
 						if (currAnswer <= MAX_ANSWER_VAL/10) {	// Only accept more digits if they will not exceed the limit
