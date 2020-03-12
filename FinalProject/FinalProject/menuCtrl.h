@@ -20,6 +20,8 @@ int MC_Tick(int state) {
 			difficulty = EASY;
 			scoreReadNum = -1;
 			wipeScores = 0;
+			tryWriteScore = 0;
+			inScoreMenu = 0;
 			returnToMenu = 0;
 			screen = screen_mainMenu;
 			WriteScreen(screen);
@@ -116,9 +118,11 @@ int MC_Tick(int state) {
 					scoreReadNum = 0;
 					screen = screen_mainMenu;
 				}
+				/*
 				else {
 					scoreReadNum = 0;
 				}
+				*/
 			}
 			else {
 				state = MC_viewScores;
@@ -205,8 +209,7 @@ void WriteScreen(int screen) {
 			nokia_lcd_write_string("Question ",1);
 			Nokia_WriteNum(problemsComplete + 1);
 			nokia_lcd_write_string("/",1);
-			Nokia_WriteNum(5);
-			//Nokia_WriteNum(15);			//*********************************** Need to fix
+			Nokia_WriteNum(10);
 			nokia_lcd_set_cursor(0,10);				// Current score
 			nokia_lcd_write_string("Score: ",1);
 			Nokia_WriteNum(score);

@@ -4,7 +4,7 @@
 
 #define TIME_MAX (600 + (difficulty*200))
 
-enum LA_states {LA_start, LA_wait, LA_gameInProgress};
+enum LA_states {LA_start, LA_wait, LA_gameInProgress, LA_gameEnd};
 int LA_Tick(int state) {
 	unsigned char LEDSequence;
 	switch(state) {
@@ -14,6 +14,7 @@ int LA_Tick(int state) {
 			break;
 		case LA_wait :
 			state = (gameInProgress && timeLeft > 0) ? LA_gameInProgress : LA_wait;
+			if (gameFin) state = LA_gameEnd;
 			LEDSequence = 0;
 			break;
 		case LA_gameInProgress :
@@ -36,10 +37,15 @@ int LA_Tick(int state) {
 			else {
 				LEDSequence = 0;
 			}
-			PORTA = (PORTA & 0xE0) | LEDSequence;
+			if (gameFin) state = LA_gameEnd;
+			break;
+		case LA_gameEnd :
+			state = returnToMenu ? LA_wait : LA_gameEnd;
+			LEDSequence = 0;
 			break;
 		default: state = LA_start; break;
 	}
+	PORTA = (PORTA & 0xE0) | LEDSequence;
 	return state;
 }
 

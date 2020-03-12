@@ -2,6 +2,8 @@
 #define GAMEMASTER_H_
 // Contains the functions used by the gameMaster task
 
+#include "math.h"
+
 // Number of lives the player is given at the start of a new game
 #define START_LIVES 3
 // Largest standalone number that can be used in a problem in easy mode
@@ -44,19 +46,20 @@ int GM_Tick(int state) {
 			problemsComplete = 0;
 			problemsLeft = 0;
 			solution = 0;
+			numTries = 0;
 			msg_disp_Cnt = 0;
 			gameFin = 0;
 			tryWriteScore = 0;
 			numLives = 0;
 			gameLost = 0;
+			screenUpdate = 0;
 			break;
 		case GM_wait :
 			state = gameInProgress ? GM_newQuestion : GM_wait;
 			score = 0;
 			numLives = 3;
 			problemsComplete = 0;
-			//problemsLeft = 15;								CHANGE BACK TO THIS
-			problemsLeft = 5;
+			problemsLeft = 10;
 			break;
 		case GM_newQuestion :
 			state = GM_waitForAnswer;
@@ -100,8 +103,7 @@ int GM_Tick(int state) {
 							//	1st try bonus: +200
 							//	Difficulty multiplier: 1 for easy, 2 for medium, 3 for hard)
 							score += (500 + timeLeft + 200*(numTries == 0))*(difficulty+1);
-							//if (problemsComplete >= 15) {		CHANGE BACK TO THIS*********************************
-							if (problemsComplete >= 5) {
+							if (problemsComplete >= 10) {
 								state = GM_win;
 								msg_disp_Cnt = 0;
 								gameFin = 1;
@@ -142,7 +144,7 @@ int GM_Tick(int state) {
 					gameLost = 1;
 					LCD_DisplayString(1,"Out of Lives!");
 				}
-				else if (problemsComplete >= 5) {
+				else if (problemsComplete >= 10) {
 					state = GM_win;
 					gameFin = 1;
 					tryWriteScore = 1;
@@ -193,28 +195,27 @@ int GM_Tick(int state) {
 	
 /* The following functions are used to generate random mathematical expressions to be solved */
 
-enum Q_types {Add_2, Add_3, Sub_2, Sub_3, Mixed_3, Mult_2, Div_2,	// Easy questions (0-6)
-			Mult_3, Add_2_Div, Add_2_Mult, Simple_exp,				// Medium questions (7-10)
-			Simple_factorial};										// Hard questions
-#define EZ_Q_MAX_NUM 6		// Define the values that correspond to the upper bound of the value that
-#define MED_Q_MAX_NUM 10	// can be used to select a type based on the difficulty
+enum Q_types {Add_2, Add_3, Sub_2, Mult_2, Div_2,		// Easy questions (0-4)
+			Mixed_3, Mult_3, Add_2_Div, Add_2_Mult,		// Medium questions (5-8)
+			Simple_exp, Simple_sqrt};					// Hard questions (9-10)
+#define EZ_Q_MAX_NUM 5		// Define the values that correspond to the upper bound of the value that
+#define MED_Q_MAX_NUM 9		// can be used to select a type based on the difficulty
 #define HRD_Q_MAX_NUM 11
 // Randomly selects a question type from the pool of available questions, which varies based on difficulty
 int GetQuestionType() {
 	int num;
 	switch(difficulty) {
-		case EASY : num = GenRand() % EZ_Q_MAX_NUM + 1; break;
-		case MEDIUM : num = GenRand() % MED_Q_MAX_NUM + 1; break;
-		case HARD : num = GenRand() % HRD_Q_MAX_NUM + 1; break;
-		default: num = GenRand() % EZ_Q_MAX_NUM + 1; break;			// Default to easy
+		case EASY : num = GenRand() % EZ_Q_MAX_NUM; break;
+		case MEDIUM : num = GenRand() % MED_Q_MAX_NUM; break;
+		case HARD : num = GenRand() % HRD_Q_MAX_NUM; break;
+		default: num = GenRand() % EZ_Q_MAX_NUM; break;			// Default to easy
 	}
 	return num;
 }
 
 //Displays a randomly generated question on the top row of the LCD screen and returns the correct answer
 unsigned short GenerateQuestion() {
-	//int type = GetQuestionType();
-	int type = GenRand() % 3;
+	int type = GetQuestionType();
 	unsigned char randNumLimit;
 	unsigned char n1,n2,n3;
 	switch(difficulty) {
@@ -262,6 +263,111 @@ unsigned short GenerateQuestion() {
 			LCD_WriteData('-');
 			Custom_LCD_WriteNum(n2);
 			answer = n1 - n2;
+			break;
+		case Mult_2 :
+			do {
+				n1 = (GenRand() % randNumLimit) + 1;
+				n2 = (GenRand() % 9) + 1 + difficulty;
+			} while ((n1 * n2) > MAX_ANSWER_VAL);
+			LCD_Cursor(1);
+			Custom_LCD_WriteNum(n1);
+			LCD_WriteData('*');
+			Custom_LCD_WriteNum(n2);
+			answer = n1 * n2;
+			break;
+		case Div_2 :
+			n2 = (GenRand() % randNumLimit/3) + 1;	// denominator
+			n1 = n2 * ((GenRand() % (3 + (2 * difficulty))) + 1); // numerator
+			LCD_Cursor(1);
+			Custom_LCD_WriteNum(n1);
+			LCD_WriteData('/');
+			Custom_LCD_WriteNum(n2);
+			answer = n1 / n2;
+			break;
+											//---------------------- Medium Only
+		case Mixed_3 :
+			do {
+				n1 = GenRand() % randNumLimit;
+				n2 = GenRand() % randNumLimit/2;
+				n3 = GenRand() % (n1 + n2);
+			} while ((n1 + n2 - n3) > MAX_ANSWER_VAL);
+			LCD_Cursor(1);
+			Custom_LCD_WriteNum(n1);
+			LCD_WriteData('+');
+			Custom_LCD_WriteNum(n2);
+			LCD_WriteData('-');
+			Custom_LCD_WriteNum(n3);
+			answer = n1 + n2 - n3;
+			break;
+		case Mult_3 :
+			do {
+				n1 = (GenRand() % randNumLimit/3) + 1;
+				n2 = (GenRand() % 3) + difficulty;
+				n3 = (GenRand() % 3) + difficulty;
+			} while ((n1 * n2 * n3) > MAX_ANSWER_VAL);
+			LCD_Cursor(1);
+			Custom_LCD_WriteNum(n1);
+			LCD_WriteData('*');
+			Custom_LCD_WriteNum(n2);
+			LCD_WriteData('*');
+			Custom_LCD_WriteNum(n3);
+			answer = n1 * n2 * n3;
+			break;
+		case Add_2_Div :
+			n3 = (GenRand() % randNumLimit/3) + 4;
+			unsigned short sum = n3 * (GenRand() % (2*difficulty) + 2);
+			n1 = (GenRand() % sum/2) + (GenRand() % sum/3) + 1 ;
+			n2 = sum - n1;
+			LCD_Cursor(1);
+			LCD_WriteData('(');
+			Custom_LCD_WriteNum(n1);
+			LCD_WriteData('+');
+			Custom_LCD_WriteNum(n2);
+			LCD_WriteData(')');
+			LCD_WriteData('/');
+			Custom_LCD_WriteNum(n3);
+			answer = (n1 + n2) / n3;
+			break;
+		case Add_2_Mult :
+			do {
+				n1 = GenRand() % randNumLimit/3 + 1;
+				n2 = GenRand() % randNumLimit/3 + 1;
+			} while ((n1 + n2) < 6);
+			do {
+				n3 = (GenRand() % randNumLimit/(2*(difficulty + 1))) + difficulty;
+			} while (((n1 + n2) * n3) > MAX_ANSWER_VAL);
+			LCD_Cursor(1);
+			LCD_WriteData('(');
+			Custom_LCD_WriteNum(n1);
+			LCD_WriteData('+');
+			Custom_LCD_WriteNum(n2);
+			LCD_WriteData(')');
+			LCD_WriteData('*');
+			Custom_LCD_WriteNum(n3);
+			answer = (n1 + n2) * n3;
+			break;
+											//---------------------- Hard Only
+		case Simple_exp :
+			n1 = (GenRand() % 2) + 2;
+			n2 = (GenRand() % 3) + 3;
+			LCD_Cursor(1);
+			Custom_LCD_WriteNum(n1);
+			LCD_WriteData('^');
+			Custom_LCD_WriteNum(n2);
+			answer = n1;
+			unsigned char i;
+			for (i = 0; i < (n2 - 1); i++) {
+				answer = answer * n1;
+			}
+			break;
+		case Simple_sqrt :
+			n1 = (GenRand() % 10) + 6;	// 6 to 15
+			LCD_Cursor(1);
+			LCD_WriteData(SQRT_CODE);
+			LCD_WriteData('(');
+			Custom_LCD_WriteNum(n1*n1);
+			LCD_WriteData(')');
+			answer = n1;
 			break;
 		default: LCD_WriteData('X'); answer = 0; break;
 	}
