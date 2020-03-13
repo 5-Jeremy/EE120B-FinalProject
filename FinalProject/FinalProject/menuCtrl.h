@@ -118,11 +118,6 @@ int MC_Tick(int state) {
 					scoreReadNum = 0;
 					screen = screen_mainMenu;
 				}
-				/*
-				else {
-					scoreReadNum = 0;
-				}
-				*/
 			}
 			else {
 				state = MC_viewScores;

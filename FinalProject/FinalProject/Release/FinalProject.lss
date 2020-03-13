@@ -5174,8 +5174,8 @@ Disassembly of section .text:
     2e8a:	30 91 03 01 	lds	r19, 0x0103	; 0x800103 <__malloc_heap_start+0x1>
     2e8e:	30 93 7c 05 	sts	0x057C, r19	; 0x80057c <__brkval+0x1>
     2e92:	20 93 7b 05 	sts	0x057B, r18	; 0x80057b <__brkval>
-    2e96:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
-    2e9a:	30 91 01 01 	lds	r19, 0x0101	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
+    2e96:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__data_start>
+    2e9a:	30 91 01 01 	lds	r19, 0x0101	; 0x800101 <__data_start+0x1>
     2e9e:	21 15       	cp	r18, r1
     2ea0:	31 05       	cpc	r19, r1
     2ea2:	41 f4       	brne	.+16     	; 0x2eb4 <malloc+0xea>

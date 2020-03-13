@@ -27,30 +27,6 @@ int DA_Tick(int state) {
 						Custom_LCD_WriteNum(currAnswer);
 					}
 				}
-				/*
-				if (isInputAvailable && ((currAnswer != lastAnswer) || (currAnswer == 0))) {
-					unsigned char nd = GetNumDigits_us(currAnswer);
-					LCD_Cursor(32-(nd));
-					if (i <= 10) LCD_WriteData(2);	// Controls arrow blinking
-					else LCD_WriteData(' ');
-					Custom_LCD_WriteNum(currAnswer);
-				}
-				else {
-					LCD_Cursor(32);
-					
-					if (lastAnswer > 0) {	// If true, the player has just cleared their input,
-						LCD_Cursor(27);		// so it must be erased
-						unsigned char j;
-						for (j = 0; j < 6; j++) {
-							LCD_WriteData(' ');
-						}
-					}
-					
-					if (i <= 10) LCD_WriteData(2);	// Controls arrow blinking
-					else LCD_WriteData(' ');
-				}
-			}
-			*/
 				lastAnswer = currAnswer;
 			}
 			break;

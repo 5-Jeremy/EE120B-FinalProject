@@ -6,7 +6,7 @@
 #define MEDAL_CODE 0
 #define TROPHY_CODE 3
 
-// Max score possible: 15*3*(500 + 1000 + 200) = 76500
+// Max score possible: 10*3*(500 + 1000 + 200) = 51000
 
 void WriteScoreAndUpdateList (unsigned char pos, unsigned long score);
 unsigned char GetScorePosition(unsigned long score);

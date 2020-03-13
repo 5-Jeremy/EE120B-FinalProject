@@ -65,7 +65,7 @@ unsigned char inScoreMenu;		// <menuCtrl> Indicates whether or not the highscore
 // -------- End Shared Variables -------------
 
 // -------- Queues -------------
-Queue menuQ;	// inputHnadler -> menuCtrl
+Queue menuQ;	// inputHandler -> menuCtrl
 Queue gameQ;	// inputHandler -> GameMaster
 Queue buzzQ;	// GameMaster	-> buzzerTask
 // -------- End Queues -------------
@@ -167,23 +167,6 @@ int main(void)
 	LCD_Cursor(1);
 	nokia_lcd_init();
 	nokia_lcd_clear();
-	
-	/*						// For testing timer
-	unsigned char ii;
-	unsigned char jj;
-	while(!TimerFlag);
-	TimerFlag = 0;
-	for (ii = 5; ii > 0;  ii--) {
-		Nokia_WriteNum(ii);
-		nokia_lcd_render();
-		jj = 100;
-		while (jj > 0) {
-			while(!TimerFlag);
-			TimerFlag = 0;
-			jj--;
-		}
-	}
-	*/
 	
 	unsigned short i; //scheduler for loop
 	while (1) {

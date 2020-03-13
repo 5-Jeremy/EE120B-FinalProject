@@ -64,8 +64,6 @@ int GM_Tick(int state) {
 		case GM_newQuestion :
 			state = GM_waitForAnswer;
 			solution = GenerateQuestion();
-			//LCD_Cursor(17);										FOR TESTING
-			//Custom_LCD_WriteNum(solution);
 			switch(difficulty) {
 				case EASY : timeLeft = totalTime = TIME_GIVEN_EZ; break;
 				case MEDIUM : timeLeft = totalTime = TIME_GIVEN_MED; break;
