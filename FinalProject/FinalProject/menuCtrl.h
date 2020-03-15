@@ -1,3 +1,9 @@
+/*	Author: Jeremy Carleton jcarl023@ucr.edu
+ *	Lab Section: 021
+ *	Assignment: Custom Lab Project
+ *	I acknowledge all content contained herein, excluding template or example
+ *	code, is my own original work.
+ */
 #ifndef MENUCTRL_H_
 #define MENUCTRL_H_
 // Contains the functions used by the menuControl task
@@ -154,7 +160,7 @@ int MC_Tick(int state) {
 	if (screen != lastScreen && state != MC_gameInProgress) WriteScreen(screen);	// Only update the screen if needed
 	return state;
 }
-
+// E for easy, M for medium, H for hard
 void PrintDifficultyIdentifier() {
 	switch(difficulty) {
 		case EASY : nokia_lcd_write_char(0x45,1); break;
@@ -162,7 +168,7 @@ void PrintDifficultyIdentifier() {
 		case HARD : nokia_lcd_write_char(0x48,1); break;
 	}
 }
-
+// Display a number on the Nokia LCD screen
 void Nokia_WriteNum(unsigned short num) {
 	unsigned char numDigits = GetNumDigits_us(num);
 	unsigned char i;
@@ -172,7 +178,7 @@ void Nokia_WriteNum(unsigned short num) {
 		nokia_lcd_write_char(str[i],1);
 	}
 }
-
+// Fills the buffer with the data for the updated screen, and sends the command to render
 void WriteScreen(int screen) {
 	nokia_lcd_clear();
 	switch(screen) {

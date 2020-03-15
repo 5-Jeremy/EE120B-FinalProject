@@ -1,3 +1,9 @@
+/*	Author: Jeremy Carleton jcarl023@ucr.edu
+ *	Lab Section: 021
+ *	Assignment: Custom Lab Project
+ *	I acknowledge all content contained herein, excluding template or example
+ *	code, is my own original work.
+ */
 #ifndef LEDARRAY_H_
 #define LEDARRAY_H_
 // Contains the functions used by the LEDArray task

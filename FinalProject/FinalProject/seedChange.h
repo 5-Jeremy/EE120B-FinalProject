@@ -1,3 +1,9 @@
+/*	Author: Jeremy Carleton jcarl023@ucr.edu
+ *	Lab Section: 021
+ *	Assignment: Custom Lab Project
+ *	I acknowledge all content contained herein, excluding template or example
+ *	code, is my own original work.
+ */
 #ifndef SEEDCHANGE_H_
 #define SEEDCHANGE_H_
 // Contains the functions used by the seedChange task

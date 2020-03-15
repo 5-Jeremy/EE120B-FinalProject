@@ -1,8 +1,12 @@
+/*	Author: Jeremy Carleton jcarl023@ucr.edu
+ *	Lab Section: 021
+ *	Assignment: Custom Lab Project
+ *	I acknowledge all content contained herein, excluding template or example
+ *	code, is my own original work.
+ */
 #ifndef GAMEMASTER_H_
 #define GAMEMASTER_H_
 // Contains the functions used by the gameMaster task
-
-#include "math.h"
 
 // Number of lives the player is given at the start of a new game
 #define START_LIVES 3
@@ -24,6 +28,8 @@
 
 #define SQRT_CODE 1
 
+// Additional functions used by this task
+int GetQuestionType();
 unsigned short GenerateQuestion();
 unsigned char IsDigit(unsigned char data);
 unsigned char Char2Digit(unsigned char data);
@@ -135,8 +141,8 @@ int GM_Tick(int state) {
 				isInputAvailable = 0;
 				problemsComplete++;
 				problemsLeft--;
-				numLives--;
-				if (numLives == 0) {
+				numLives--;				// Player ran out of time, decrease lives and do not increase score
+				if (numLives == 0) {	// Check if the player is out of lives
 					state = GM_lose;
 					gameFin = 1;
 					gameLost = 1;
@@ -192,7 +198,7 @@ int GM_Tick(int state) {
 }
 	
 /* The following functions are used to generate random mathematical expressions to be solved */
-
+// Question structures that can be selected from when generating a question
 enum Q_types {Add_2, Add_3, Sub_2, Mult_2, Div_2,		// Easy questions (0-4)
 			Mixed_3, Mult_3, Add_2_Div, Add_2_Mult,		// Medium questions (5-8)
 			Simple_exp, Simple_sqrt};					// Hard questions (9-10)
@@ -211,7 +217,7 @@ int GetQuestionType() {
 	return num;
 }
 
-//Displays a randomly generated question on the top row of the LCD screen and returns the correct answer
+// Displays a randomly generated question on the top row of the LCD screen and returns the correct answer
 unsigned short GenerateQuestion() {
 	int type = GetQuestionType();
 	unsigned char randNumLimit;

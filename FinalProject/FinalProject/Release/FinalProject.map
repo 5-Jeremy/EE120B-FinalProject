@@ -973,37 +973,37 @@ END GROUP
                 0x008002cc                custom_5
  .bss.custom_4  0x008002d4        0x8 LCD_Custom.o
                 0x008002d4                custom_4
- .bss.task8.2531
+ .bss.task8.2435
                 0x008002dc        0xb main.o
- .bss.task7.2530
+ .bss.task7.2434
                 0x008002e7        0xb main.o
- .bss.task6.2529
+ .bss.task6.2433
                 0x008002f2        0xb main.o
- .bss.task5.2528
+ .bss.task5.2432
                 0x008002fd        0xb main.o
- .bss.task4.2527
+ .bss.task4.2431
                 0x00800308        0xb main.o
- .bss.task3.2526
+ .bss.task3.2430
                 0x00800313        0xb main.o
- .bss.task2.2525
+ .bss.task2.2429
                 0x0080031e        0xb main.o
- .bss.task1.2524
+ .bss.task1.2428
                 0x00800329        0xb main.o
- .bss.task0.2523
+ .bss.task0.2427
                 0x00800334        0xb main.o
- .bss.i.2496    0x0080033f        0x1 main.o
- .bss.readPos.2436
+ .bss.i.2400    0x0080033f        0x1 main.o
+ .bss.readPos.2340
                 0x00800340        0x1 main.o
- .bss.currReadNum.2435
+ .bss.currReadNum.2339
                 0x00800341        0x1 main.o
- .bss.i.2408    0x00800342        0x1 main.o
- .bss.lastAnswer.2407
+ .bss.i.2312    0x00800342        0x1 main.o
+ .bss.lastAnswer.2311
                 0x00800343        0x4 main.o
- .bss.msg_disp_Cnt.2296
+ .bss.msg_disp_Cnt.2200
                 0x00800347        0x1 main.o
- .bss.numTries.2298
+ .bss.numTries.2202
                 0x00800348        0x1 main.o
- .bss.solution.2295
+ .bss.solution.2199
                 0x00800349        0x2 main.o
  .bss.delayTimer.2143
                 0x0080034b        0x1 main.o

@@ -1,3 +1,9 @@
+/*	Author: Jeremy Carleton jcarl023@ucr.edu
+ *	Lab Section: 021
+ *	Assignment: Custom Lab Project
+ *	I acknowledge all content contained herein, excluding template or example
+ *	code, is my own original work.
+ */
 #ifndef __EEPROM_h__
 #define __EEPROM_h__
 

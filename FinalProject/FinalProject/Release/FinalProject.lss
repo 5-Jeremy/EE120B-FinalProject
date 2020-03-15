@@ -855,11 +855,11 @@ Disassembly of section .text:
      800:	01 97       	sbiw	r24, 0x01	; 1
      802:	71 f0       	breq	.+28     	; 0x820 <DA_Tick+0x2a>
      804:	60 c0       	rjmp	.+192    	; 0x8c6 <DA_Tick+0xd0>
-     806:	10 92 43 03 	sts	0x0343, r1	; 0x800343 <lastAnswer.2407>
-     80a:	10 92 44 03 	sts	0x0344, r1	; 0x800344 <lastAnswer.2407+0x1>
-     80e:	10 92 45 03 	sts	0x0345, r1	; 0x800345 <lastAnswer.2407+0x2>
-     812:	10 92 46 03 	sts	0x0346, r1	; 0x800346 <lastAnswer.2407+0x3>
-     816:	10 92 42 03 	sts	0x0342, r1	; 0x800342 <i.2408>
+     806:	10 92 43 03 	sts	0x0343, r1	; 0x800343 <lastAnswer.2311>
+     80a:	10 92 44 03 	sts	0x0344, r1	; 0x800344 <lastAnswer.2311+0x1>
+     80e:	10 92 45 03 	sts	0x0345, r1	; 0x800345 <lastAnswer.2311+0x2>
+     812:	10 92 46 03 	sts	0x0346, r1	; 0x800346 <lastAnswer.2311+0x3>
+     816:	10 92 42 03 	sts	0x0342, r1	; 0x800342 <i.2312>
      81a:	c1 e0       	ldi	r28, 0x01	; 1
      81c:	d0 e0       	ldi	r29, 0x00	; 0
      81e:	55 c0       	rjmp	.+170    	; 0x8ca <DA_Tick+0xd4>
@@ -867,11 +867,11 @@ Disassembly of section .text:
      824:	88 23       	and	r24, r24
      826:	09 f4       	brne	.+2      	; 0x82a <DA_Tick+0x34>
      828:	50 c0       	rjmp	.+160    	; 0x8ca <DA_Tick+0xd4>
-     82a:	80 91 42 03 	lds	r24, 0x0342	; 0x800342 <i.2408>
+     82a:	80 91 42 03 	lds	r24, 0x0342	; 0x800342 <i.2312>
      82e:	8f 5f       	subi	r24, 0xFF	; 255
      830:	62 e3       	ldi	r22, 0x32	; 50
      832:	0e 94 e6 15 	call	0x2bcc	; 0x2bcc <__udivmodqi4>
-     836:	90 93 42 03 	sts	0x0342, r25	; 0x800342 <i.2408>
+     836:	90 93 42 03 	sts	0x0342, r25	; 0x800342 <i.2312>
      83a:	80 91 72 05 	lds	r24, 0x0572	; 0x800572 <isInputAvailable>
      83e:	88 23       	and	r24, r24
      840:	31 f0       	breq	.+12     	; 0x84e <DA_Tick+0x58>
@@ -884,7 +884,7 @@ Disassembly of section .text:
      852:	98 1b       	sub	r25, r24
      854:	89 2f       	mov	r24, r25
      856:	10 de       	rcall	.-992    	; 0x478 <LCD_Cursor>
-     858:	80 91 42 03 	lds	r24, 0x0342	; 0x800342 <i.2408>
+     858:	80 91 42 03 	lds	r24, 0x0342	; 0x800342 <i.2312>
      85c:	8a 31       	cpi	r24, 0x1A	; 26
      85e:	10 f4       	brcc	.+4      	; 0x864 <DA_Tick+0x6e>
      860:	82 e0       	ldi	r24, 0x02	; 2
@@ -898,10 +898,10 @@ Disassembly of section .text:
      874:	90 91 63 05 	lds	r25, 0x0563	; 0x800563 <currAnswer+0x1>
      878:	a0 91 64 05 	lds	r26, 0x0564	; 0x800564 <currAnswer+0x2>
      87c:	b0 91 65 05 	lds	r27, 0x0565	; 0x800565 <currAnswer+0x3>
-     880:	40 91 43 03 	lds	r20, 0x0343	; 0x800343 <lastAnswer.2407>
-     884:	50 91 44 03 	lds	r21, 0x0344	; 0x800344 <lastAnswer.2407+0x1>
-     888:	60 91 45 03 	lds	r22, 0x0345	; 0x800345 <lastAnswer.2407+0x2>
-     88c:	70 91 46 03 	lds	r23, 0x0346	; 0x800346 <lastAnswer.2407+0x3>
+     880:	40 91 43 03 	lds	r20, 0x0343	; 0x800343 <lastAnswer.2311>
+     884:	50 91 44 03 	lds	r21, 0x0344	; 0x800344 <lastAnswer.2311+0x1>
+     888:	60 91 45 03 	lds	r22, 0x0345	; 0x800345 <lastAnswer.2311+0x2>
+     88c:	70 91 46 03 	lds	r23, 0x0346	; 0x800346 <lastAnswer.2311+0x3>
      890:	84 17       	cp	r24, r20
      892:	95 07       	cpc	r25, r21
      894:	a6 07       	cpc	r26, r22
@@ -916,10 +916,10 @@ Disassembly of section .text:
      8a8:	90 91 63 05 	lds	r25, 0x0563	; 0x800563 <currAnswer+0x1>
      8ac:	a0 91 64 05 	lds	r26, 0x0564	; 0x800564 <currAnswer+0x2>
      8b0:	b0 91 65 05 	lds	r27, 0x0565	; 0x800565 <currAnswer+0x3>
-     8b4:	80 93 43 03 	sts	0x0343, r24	; 0x800343 <lastAnswer.2407>
-     8b8:	90 93 44 03 	sts	0x0344, r25	; 0x800344 <lastAnswer.2407+0x1>
-     8bc:	a0 93 45 03 	sts	0x0345, r26	; 0x800345 <lastAnswer.2407+0x2>
-     8c0:	b0 93 46 03 	sts	0x0346, r27	; 0x800346 <lastAnswer.2407+0x3>
+     8b4:	80 93 43 03 	sts	0x0343, r24	; 0x800343 <lastAnswer.2311>
+     8b8:	90 93 44 03 	sts	0x0344, r25	; 0x800344 <lastAnswer.2311+0x1>
+     8bc:	a0 93 45 03 	sts	0x0345, r26	; 0x800345 <lastAnswer.2311+0x2>
+     8c0:	b0 93 46 03 	sts	0x0346, r27	; 0x800346 <lastAnswer.2311+0x3>
      8c4:	02 c0       	rjmp	.+4      	; 0x8ca <DA_Tick+0xd4>
      8c6:	c0 e0       	ldi	r28, 0x00	; 0
      8c8:	d0 e0       	ldi	r29, 0x00	; 0
@@ -1341,7 +1341,7 @@ Disassembly of section .text:
      c78:	82 17       	cp	r24, r18
      c7a:	93 07       	cpc	r25, r19
      c7c:	a8 f0       	brcs	.+42     	; 0xca8 <BT_Tick+0x108>
-     c7e:	80 91 3f 03 	lds	r24, 0x033F	; 0x80033f <i.2496>
+     c7e:	80 91 3f 03 	lds	r24, 0x033F	; 0x80033f <i.2400>
      c82:	80 31       	cpi	r24, 0x10	; 16
      c84:	28 f4       	brcc	.+10     	; 0xc90 <BT_Tick+0xf0>
      c86:	60 e0       	ldi	r22, 0x00	; 0
@@ -1354,7 +1354,7 @@ Disassembly of section .text:
      c94:	8f ea       	ldi	r24, 0xAF	; 175
      c96:	93 e4       	ldi	r25, 0x43	; 67
      c98:	0e 94 b5 13 	call	0x276a	; 0x276a <set_PWM>
-     c9c:	80 91 3f 03 	lds	r24, 0x033F	; 0x80033f <i.2496>
+     c9c:	80 91 3f 03 	lds	r24, 0x033F	; 0x80033f <i.2400>
      ca0:	8e 31       	cpi	r24, 0x1E	; 30
      ca2:	08 f0       	brcs	.+2      	; 0xca6 <BT_Tick+0x106>
      ca4:	8f c0       	rjmp	.+286    	; 0xdc4 <BT_Tick+0x224>
@@ -1403,7 +1403,7 @@ Disassembly of section .text:
      d0a:	82 17       	cp	r24, r18
      d0c:	93 07       	cpc	r25, r19
      d0e:	a8 f0       	brcs	.+42     	; 0xd3a <BT_Tick+0x19a>
-     d10:	80 91 3f 03 	lds	r24, 0x033F	; 0x80033f <i.2496>
+     d10:	80 91 3f 03 	lds	r24, 0x033F	; 0x80033f <i.2400>
      d14:	8b 30       	cpi	r24, 0x0B	; 11
      d16:	28 f4       	brcc	.+10     	; 0xd22 <BT_Tick+0x182>
      d18:	60 e0       	ldi	r22, 0x00	; 0
@@ -1416,7 +1416,7 @@ Disassembly of section .text:
      d26:	81 ee       	ldi	r24, 0xE1	; 225
      d28:	93 e4       	ldi	r25, 0x43	; 67
      d2a:	0e 94 b5 13 	call	0x276a	; 0x276a <set_PWM>
-     d2e:	80 91 3f 03 	lds	r24, 0x033F	; 0x80033f <i.2496>
+     d2e:	80 91 3f 03 	lds	r24, 0x033F	; 0x80033f <i.2400>
      d32:	84 31       	cpi	r24, 0x14	; 20
      d34:	08 f0       	brcs	.+2      	; 0xd38 <BT_Tick+0x198>
      d36:	46 c0       	rjmp	.+140    	; 0xdc4 <BT_Tick+0x224>
@@ -1438,7 +1438,7 @@ Disassembly of section .text:
      d5e:	22 23       	and	r18, r18
      d60:	31 f0       	breq	.+12     	; 0xd6e <BT_Tick+0x1ce>
      d62:	08 df       	rcall	.-496    	; 0xb74 <QueueDequeue>
-     d64:	10 92 3f 03 	sts	0x033F, r1	; 0x80033f <i.2496>
+     d64:	10 92 3f 03 	sts	0x033F, r1	; 0x80033f <i.2400>
      d68:	c5 e0       	ldi	r28, 0x05	; 5
      d6a:	d0 e0       	ldi	r29, 0x00	; 0
      d6c:	93 c0       	rjmp	.+294    	; 0xe94 <BT_Tick+0x2f4>
@@ -1460,7 +1460,7 @@ Disassembly of section .text:
      d94:	62 17       	cp	r22, r18
      d96:	73 07       	cpc	r23, r19
      d98:	e8 f0       	brcs	.+58     	; 0xdd4 <BT_Tick+0x234>
-     d9a:	80 91 3f 03 	lds	r24, 0x033F	; 0x80033f <i.2496>
+     d9a:	80 91 3f 03 	lds	r24, 0x033F	; 0x80033f <i.2400>
      d9e:	86 30       	cpi	r24, 0x06	; 6
      da0:	38 f4       	brcc	.+14     	; 0xdb0 <BT_Tick+0x210>
      da2:	60 e0       	ldi	r22, 0x00	; 0
@@ -1474,19 +1474,19 @@ Disassembly of section .text:
      db4:	89 e0       	ldi	r24, 0x09	; 9
      db6:	94 e4       	ldi	r25, 0x44	; 68
      db8:	0e 94 b5 13 	call	0x276a	; 0x276a <set_PWM>
-     dbc:	80 91 3f 03 	lds	r24, 0x033F	; 0x80033f <i.2496>
+     dbc:	80 91 3f 03 	lds	r24, 0x033F	; 0x80033f <i.2400>
      dc0:	8a 30       	cpi	r24, 0x0A	; 10
      dc2:	10 f0       	brcs	.+4      	; 0xdc8 <BT_Tick+0x228>
-     dc4:	10 92 3f 03 	sts	0x033F, r1	; 0x80033f <i.2496>
-     dc8:	80 91 3f 03 	lds	r24, 0x033F	; 0x80033f <i.2496>
+     dc4:	10 92 3f 03 	sts	0x033F, r1	; 0x80033f <i.2400>
+     dc8:	80 91 3f 03 	lds	r24, 0x033F	; 0x80033f <i.2400>
      dcc:	8f 5f       	subi	r24, 0xFF	; 255
-     dce:	80 93 3f 03 	sts	0x033F, r24	; 0x80033f <i.2496>
+     dce:	80 93 3f 03 	sts	0x033F, r24	; 0x80033f <i.2400>
      dd2:	60 c0       	rjmp	.+192    	; 0xe94 <BT_Tick+0x2f4>
      dd4:	60 e0       	ldi	r22, 0x00	; 0
      dd6:	70 e0       	ldi	r23, 0x00	; 0
      dd8:	cb 01       	movw	r24, r22
      dda:	0e 94 b5 13 	call	0x276a	; 0x276a <set_PWM>
-     dde:	10 92 3f 03 	sts	0x033F, r1	; 0x80033f <i.2496>
+     dde:	10 92 3f 03 	sts	0x033F, r1	; 0x80033f <i.2400>
      de2:	c1 e0       	ldi	r28, 0x01	; 1
      de4:	d0 e0       	ldi	r29, 0x00	; 0
      de6:	56 c0       	rjmp	.+172    	; 0xe94 <BT_Tick+0x2f4>
@@ -1499,7 +1499,7 @@ Disassembly of section .text:
      dfa:	30 97       	sbiw	r30, 0x00	; 0
      dfc:	09 f4       	brne	.+2      	; 0xe00 <BT_Tick+0x260>
      dfe:	f0 ce       	rjmp	.-544    	; 0xbe0 <BT_Tick+0x40>
-     e00:	80 91 3f 03 	lds	r24, 0x033F	; 0x80033f <i.2496>
+     e00:	80 91 3f 03 	lds	r24, 0x033F	; 0x80033f <i.2400>
      e04:	88 32       	cpi	r24, 0x28	; 40
      e06:	d0 f1       	brcs	.+116    	; 0xe7c <BT_Tick+0x2dc>
      e08:	20 91 75 05 	lds	r18, 0x0575	; 0x800575 <difficulty>
@@ -1525,7 +1525,7 @@ Disassembly of section .text:
      e32:	8e 17       	cp	r24, r30
      e34:	9f 07       	cpc	r25, r31
      e36:	28 f0       	brcs	.+10     	; 0xe42 <BT_Tick+0x2a2>
-     e38:	10 92 3f 03 	sts	0x033F, r1	; 0x80033f <i.2496>
+     e38:	10 92 3f 03 	sts	0x033F, r1	; 0x80033f <i.2400>
      e3c:	c2 e0       	ldi	r28, 0x02	; 2
      e3e:	d0 e0       	ldi	r29, 0x00	; 0
      e40:	29 c0       	rjmp	.+82     	; 0xe94 <BT_Tick+0x2f4>
@@ -1547,16 +1547,16 @@ Disassembly of section .text:
      e62:	3f 07       	cpc	r19, r31
      e64:	08 f4       	brcc	.+2      	; 0xe68 <BT_Tick+0x2c8>
      e66:	bc ce       	rjmp	.-648    	; 0xbe0 <BT_Tick+0x40>
-     e68:	10 92 3f 03 	sts	0x033F, r1	; 0x80033f <i.2496>
+     e68:	10 92 3f 03 	sts	0x033F, r1	; 0x80033f <i.2400>
      e6c:	c3 e0       	ldi	r28, 0x03	; 3
      e6e:	d0 e0       	ldi	r29, 0x00	; 0
      e70:	11 c0       	rjmp	.+34     	; 0xe94 <BT_Tick+0x2f4>
-     e72:	10 92 3f 03 	sts	0x033F, r1	; 0x80033f <i.2496>
+     e72:	10 92 3f 03 	sts	0x033F, r1	; 0x80033f <i.2400>
      e76:	c4 e0       	ldi	r28, 0x04	; 4
      e78:	d0 e0       	ldi	r29, 0x00	; 0
      e7a:	0c c0       	rjmp	.+24     	; 0xe94 <BT_Tick+0x2f4>
      e7c:	8f 5f       	subi	r24, 0xFF	; 255
-     e7e:	80 93 3f 03 	sts	0x033F, r24	; 0x80033f <i.2496>
+     e7e:	80 93 3f 03 	sts	0x033F, r24	; 0x80033f <i.2400>
      e82:	60 e0       	ldi	r22, 0x00	; 0
      e84:	70 e0       	ldi	r23, 0x00	; 0
      e86:	86 e1       	ldi	r24, 0x16	; 22
@@ -3025,10 +3025,10 @@ Disassembly of section .text:
     1c06:	10 92 72 05 	sts	0x0572, r1	; 0x800572 <isInputAvailable>
     1c0a:	10 92 74 05 	sts	0x0574, r1	; 0x800574 <problemsComplete>
     1c0e:	10 92 60 05 	sts	0x0560, r1	; 0x800560 <problemsLeft>
-    1c12:	10 92 4a 03 	sts	0x034A, r1	; 0x80034a <solution.2295+0x1>
-    1c16:	10 92 49 03 	sts	0x0349, r1	; 0x800349 <solution.2295>
-    1c1a:	10 92 48 03 	sts	0x0348, r1	; 0x800348 <numTries.2298>
-    1c1e:	10 92 47 03 	sts	0x0347, r1	; 0x800347 <msg_disp_Cnt.2296>
+    1c12:	10 92 4a 03 	sts	0x034A, r1	; 0x80034a <solution.2199+0x1>
+    1c16:	10 92 49 03 	sts	0x0349, r1	; 0x800349 <solution.2199>
+    1c1a:	10 92 48 03 	sts	0x0348, r1	; 0x800348 <numTries.2202>
+    1c1e:	10 92 47 03 	sts	0x0347, r1	; 0x800347 <msg_disp_Cnt.2200>
     1c22:	10 92 6f 05 	sts	0x056F, r1	; 0x80056f <gameFin>
     1c26:	10 92 78 05 	sts	0x0578, r1	; 0x800578 <tryWriteScore>
     1c2a:	10 92 73 05 	sts	0x0573, r1	; 0x800573 <numLives>
@@ -3051,8 +3051,8 @@ Disassembly of section .text:
     1c60:	80 93 60 05 	sts	0x0560, r24	; 0x800560 <problemsLeft>
     1c64:	7d c1       	rjmp	.+762    	; 0x1f60 <GM_Tick+0x3b2>
     1c66:	07 dc       	rcall	.-2034   	; 0x1476 <GenerateQuestion>
-    1c68:	90 93 4a 03 	sts	0x034A, r25	; 0x80034a <solution.2295+0x1>
-    1c6c:	80 93 49 03 	sts	0x0349, r24	; 0x800349 <solution.2295>
+    1c68:	90 93 4a 03 	sts	0x034A, r25	; 0x80034a <solution.2199+0x1>
+    1c6c:	80 93 49 03 	sts	0x0349, r24	; 0x800349 <solution.2199>
     1c70:	80 91 75 05 	lds	r24, 0x0575	; 0x800575 <difficulty>
     1c74:	81 30       	cpi	r24, 0x01	; 1
     1c76:	31 f0       	breq	.+12     	; 0x1c84 <GM_Tick+0xd6>
@@ -3075,7 +3075,7 @@ Disassembly of section .text:
     1ca2:	10 92 63 05 	sts	0x0563, r1	; 0x800563 <currAnswer+0x1>
     1ca6:	10 92 64 05 	sts	0x0564, r1	; 0x800564 <currAnswer+0x2>
     1caa:	10 92 65 05 	sts	0x0565, r1	; 0x800565 <currAnswer+0x3>
-    1cae:	10 92 48 03 	sts	0x0348, r1	; 0x800348 <numTries.2298>
+    1cae:	10 92 48 03 	sts	0x0348, r1	; 0x800348 <numTries.2202>
     1cb2:	e0 91 67 05 	lds	r30, 0x0567	; 0x800567 <buzzQ>
     1cb6:	f0 91 68 05 	lds	r31, 0x0568	; 0x800568 <buzzQ+0x1>
     1cba:	12 82       	std	Z+2, r1	; 0x02
@@ -3115,8 +3115,8 @@ Disassembly of section .text:
     1d16:	83 32       	cpi	r24, 0x23	; 35
     1d18:	09 f0       	breq	.+2      	; 0x1d1c <GM_Tick+0x16e>
     1d1a:	7f c0       	rjmp	.+254    	; 0x1e1a <GM_Tick+0x26c>
-    1d1c:	80 91 49 03 	lds	r24, 0x0349	; 0x800349 <solution.2295>
-    1d20:	90 91 4a 03 	lds	r25, 0x034A	; 0x80034a <solution.2295+0x1>
+    1d1c:	80 91 49 03 	lds	r24, 0x0349	; 0x800349 <solution.2199>
+    1d20:	90 91 4a 03 	lds	r25, 0x034A	; 0x80034a <solution.2199+0x1>
     1d24:	a0 e0       	ldi	r26, 0x00	; 0
     1d26:	b0 e0       	ldi	r27, 0x00	; 0
     1d28:	40 91 62 05 	lds	r20, 0x0562	; 0x800562 <currAnswer>
@@ -3141,7 +3141,7 @@ Disassembly of section .text:
     1d60:	80 91 60 05 	lds	r24, 0x0560	; 0x800560 <problemsLeft>
     1d64:	81 50       	subi	r24, 0x01	; 1
     1d66:	80 93 60 05 	sts	0x0560, r24	; 0x800560 <problemsLeft>
-    1d6a:	80 91 48 03 	lds	r24, 0x0348	; 0x800348 <numTries.2298>
+    1d6a:	80 91 48 03 	lds	r24, 0x0348	; 0x800348 <numTries.2202>
     1d6e:	88 23       	and	r24, r24
     1d70:	19 f0       	breq	.+6      	; 0x1d78 <GM_Tick+0x1ca>
     1d72:	80 e0       	ldi	r24, 0x00	; 0
@@ -3177,7 +3177,7 @@ Disassembly of section .text:
     1dbe:	90 93 6c 05 	sts	0x056C, r25	; 0x80056c <score+0x1>
     1dc2:	a0 93 6d 05 	sts	0x056D, r26	; 0x80056d <score+0x2>
     1dc6:	b0 93 6e 05 	sts	0x056E, r27	; 0x80056e <score+0x3>
-    1dca:	10 92 47 03 	sts	0x0347, r1	; 0x800347 <msg_disp_Cnt.2296>
+    1dca:	10 92 47 03 	sts	0x0347, r1	; 0x800347 <msg_disp_Cnt.2200>
     1dce:	2a 30       	cpi	r18, 0x0A	; 10
     1dd0:	60 f0       	brcs	.+24     	; 0x1dea <GM_Tick+0x23c>
     1dd2:	81 e0       	ldi	r24, 0x01	; 1
@@ -3198,9 +3198,9 @@ Disassembly of section .text:
     1dfa:	c5 e0       	ldi	r28, 0x05	; 5
     1dfc:	d0 e0       	ldi	r29, 0x00	; 0
     1dfe:	3c c0       	rjmp	.+120    	; 0x1e78 <GM_Tick+0x2ca>
-    1e00:	80 91 48 03 	lds	r24, 0x0348	; 0x800348 <numTries.2298>
+    1e00:	80 91 48 03 	lds	r24, 0x0348	; 0x800348 <numTries.2202>
     1e04:	8f 5f       	subi	r24, 0xFF	; 255
-    1e06:	80 93 48 03 	sts	0x0348, r24	; 0x800348 <numTries.2298>
+    1e06:	80 93 48 03 	sts	0x0348, r24	; 0x800348 <numTries.2202>
     1e0a:	60 e0       	ldi	r22, 0x00	; 0
     1e0c:	80 91 67 05 	lds	r24, 0x0567	; 0x800567 <buzzQ>
     1e10:	90 91 68 05 	lds	r25, 0x0568	; 0x800568 <buzzQ+0x1>
@@ -3284,20 +3284,20 @@ Disassembly of section .text:
     1ee8:	3b c0       	rjmp	.+118    	; 0x1f60 <GM_Tick+0x3b2>
     1eea:	81 e0       	ldi	r24, 0x01	; 1
     1eec:	80 93 6a 05 	sts	0x056A, r24	; 0x80056a <screenUpdate>
-    1ef0:	10 92 47 03 	sts	0x0347, r1	; 0x800347 <msg_disp_Cnt.2296>
+    1ef0:	10 92 47 03 	sts	0x0347, r1	; 0x800347 <msg_disp_Cnt.2200>
     1ef4:	69 ea       	ldi	r22, 0xA9	; 169
     1ef6:	72 e0       	ldi	r23, 0x02	; 2
     1ef8:	0e 94 4a 02 	call	0x494	; 0x494 <LCD_DisplayString>
     1efc:	c4 e0       	ldi	r28, 0x04	; 4
     1efe:	d0 e0       	ldi	r29, 0x00	; 0
     1f00:	2f c0       	rjmp	.+94     	; 0x1f60 <GM_Tick+0x3b2>
-    1f02:	80 91 47 03 	lds	r24, 0x0347	; 0x800347 <msg_disp_Cnt.2296>
+    1f02:	80 91 47 03 	lds	r24, 0x0347	; 0x800347 <msg_disp_Cnt.2200>
     1f06:	8a 30       	cpi	r24, 0x0A	; 10
     1f08:	10 f0       	brcs	.+4      	; 0x1f0e <GM_Tick+0x360>
     1f0a:	c2 e0       	ldi	r28, 0x02	; 2
     1f0c:	d0 e0       	ldi	r29, 0x00	; 0
     1f0e:	8f 5f       	subi	r24, 0xFF	; 255
-    1f10:	80 93 47 03 	sts	0x0347, r24	; 0x800347 <msg_disp_Cnt.2296>
+    1f10:	80 93 47 03 	sts	0x0347, r24	; 0x800347 <msg_disp_Cnt.2200>
     1f14:	c2 30       	cpi	r28, 0x02	; 2
     1f16:	d1 05       	cpc	r29, r1
     1f18:	19 f5       	brne	.+70     	; 0x1f60 <GM_Tick+0x3b2>
@@ -3549,7 +3549,7 @@ Disassembly of section .text:
     2104:	80 c0       	rjmp	.+256    	; 0x2206 <SD_Tick+0x128>
     2106:	dc df       	rcall	.-72     	; 0x20c0 <WipeMemory>
     2108:	7b c0       	rjmp	.+246    	; 0x2200 <SD_Tick+0x122>
-    210a:	10 92 41 03 	sts	0x0341, r1	; 0x800341 <currReadNum.2435>
+    210a:	10 92 41 03 	sts	0x0341, r1	; 0x800341 <currReadNum.2339>
     210e:	8f ef       	ldi	r24, 0xFF	; 255
     2110:	80 93 61 05 	sts	0x0561, r24	; 0x800561 <scoreWritten>
     2114:	75 c0       	rjmp	.+234    	; 0x2200 <SD_Tick+0x122>
@@ -3564,14 +3564,14 @@ Disassembly of section .text:
     212c:	98 0f       	add	r25, r24
     212e:	9a 30       	cpi	r25, 0x0A	; 10
     2130:	a0 f4       	brcc	.+40     	; 0x215a <SD_Tick+0x7c>
-    2132:	90 91 41 03 	lds	r25, 0x0341	; 0x800341 <currReadNum.2435>
+    2132:	90 91 41 03 	lds	r25, 0x0341	; 0x800341 <currReadNum.2339>
     2136:	89 17       	cp	r24, r25
     2138:	d9 f0       	breq	.+54     	; 0x2170 <SD_Tick+0x92>
     213a:	90 91 57 05 	lds	r25, 0x0557	; 0x800557 <inScoreMenu>
     213e:	99 23       	and	r25, r25
     2140:	b9 f0       	breq	.+46     	; 0x2170 <SD_Tick+0x92>
-    2142:	80 93 40 03 	sts	0x0340, r24	; 0x800340 <readPos.2436>
-    2146:	80 93 41 03 	sts	0x0341, r24	; 0x800341 <currReadNum.2435>
+    2142:	80 93 40 03 	sts	0x0340, r24	; 0x800340 <readPos.2340>
+    2146:	80 93 41 03 	sts	0x0341, r24	; 0x800341 <currReadNum.2339>
     214a:	0e 94 3a 02 	call	0x474	; 0x474 <LCD_ClearScreen>
     214e:	81 e0       	ldi	r24, 0x01	; 1
     2150:	0e 94 3c 02 	call	0x478	; 0x478 <LCD_Cursor>
@@ -3580,13 +3580,13 @@ Disassembly of section .text:
     2158:	13 c0       	rjmp	.+38     	; 0x2180 <SD_Tick+0xa2>
     215a:	81 11       	cpse	r24, r1
     215c:	09 c0       	rjmp	.+18     	; 0x2170 <SD_Tick+0x92>
-    215e:	80 91 41 03 	lds	r24, 0x0341	; 0x800341 <currReadNum.2435>
+    215e:	80 91 41 03 	lds	r24, 0x0341	; 0x800341 <currReadNum.2339>
     2162:	88 23       	and	r24, r24
     2164:	29 f0       	breq	.+10     	; 0x2170 <SD_Tick+0x92>
-    2166:	10 92 41 03 	sts	0x0341, r1	; 0x800341 <currReadNum.2435>
+    2166:	10 92 41 03 	sts	0x0341, r1	; 0x800341 <currReadNum.2339>
     216a:	0e 94 3a 02 	call	0x474	; 0x474 <LCD_ClearScreen>
     216e:	08 c0       	rjmp	.+16     	; 0x2180 <SD_Tick+0xa2>
-    2170:	10 92 40 03 	sts	0x0340, r1	; 0x800340 <readPos.2436>
+    2170:	10 92 40 03 	sts	0x0340, r1	; 0x800340 <readPos.2340>
     2174:	05 c0       	rjmp	.+10     	; 0x2180 <SD_Tick+0xa2>
     2176:	c3 e0       	ldi	r28, 0x03	; 3
     2178:	d0 e0       	ldi	r29, 0x00	; 0
@@ -3602,12 +3602,12 @@ Disassembly of section .text:
     2190:	3c c0       	rjmp	.+120    	; 0x220a <SD_Tick+0x12c>
     2192:	83 e2       	ldi	r24, 0x23	; 35
     2194:	0e 94 42 02 	call	0x484	; 0x484 <LCD_WriteData>
-    2198:	80 91 40 03 	lds	r24, 0x0340	; 0x800340 <readPos.2436>
+    2198:	80 91 40 03 	lds	r24, 0x0340	; 0x800340 <readPos.2340>
     219c:	90 e0       	ldi	r25, 0x00	; 0
     219e:	0e 94 a6 02 	call	0x54c	; 0x54c <Custom_LCD_WriteNum>
     21a2:	80 e2       	ldi	r24, 0x20	; 32
     21a4:	0e 94 42 02 	call	0x484	; 0x484 <LCD_WriteData>
-    21a8:	80 91 40 03 	lds	r24, 0x0340	; 0x800340 <readPos.2436>
+    21a8:	80 91 40 03 	lds	r24, 0x0340	; 0x800340 <readPos.2340>
     21ac:	84 30       	cpi	r24, 0x04	; 4
     21ae:	10 f4       	brcc	.+4      	; 0x21b4 <SD_Tick+0xd6>
     21b0:	83 e0       	ldi	r24, 0x03	; 3
@@ -3616,7 +3616,7 @@ Disassembly of section .text:
     21b6:	0e 94 42 02 	call	0x484	; 0x484 <LCD_WriteData>
     21ba:	81 e1       	ldi	r24, 0x11	; 17
     21bc:	0e 94 3c 02 	call	0x478	; 0x478 <LCD_Cursor>
-    21c0:	80 91 40 03 	lds	r24, 0x0340	; 0x800340 <readPos.2436>
+    21c0:	80 91 40 03 	lds	r24, 0x0340	; 0x800340 <readPos.2340>
     21c4:	d6 de       	rcall	.-596    	; 0x1f72 <ReadScore>
     21c6:	0e 94 e2 02 	call	0x5c4	; 0x5c4 <Custom_LCD_WriteNum_ul>
     21ca:	1a c0       	rjmp	.+52     	; 0x2200 <SD_Tick+0x122>
@@ -3700,127 +3700,127 @@ Disassembly of section .text:
     2288:	0d 92       	st	X+, r0
     228a:	8a 95       	dec	r24
     228c:	e1 f7       	brne	.-8      	; 0x2286 <main+0x74>
-    228e:	10 92 34 03 	sts	0x0334, r1	; 0x800334 <task0.2523>
+    228e:	10 92 34 03 	sts	0x0334, r1	; 0x800334 <task0.2427>
     2292:	60 91 36 01 	lds	r22, 0x0136	; 0x800136 <GCD>
     2296:	70 91 37 01 	lds	r23, 0x0137	; 0x800137 <GCD+0x1>
     229a:	80 91 38 01 	lds	r24, 0x0138	; 0x800138 <GCD+0x2>
     229e:	90 91 39 01 	lds	r25, 0x0139	; 0x800139 <GCD+0x3>
-    22a2:	60 93 35 03 	sts	0x0335, r22	; 0x800335 <task0.2523+0x1>
-    22a6:	70 93 36 03 	sts	0x0336, r23	; 0x800336 <task0.2523+0x2>
-    22aa:	80 93 37 03 	sts	0x0337, r24	; 0x800337 <task0.2523+0x3>
-    22ae:	90 93 38 03 	sts	0x0338, r25	; 0x800338 <task0.2523+0x4>
-    22b2:	60 93 39 03 	sts	0x0339, r22	; 0x800339 <task0.2523+0x5>
-    22b6:	70 93 3a 03 	sts	0x033A, r23	; 0x80033a <task0.2523+0x6>
-    22ba:	80 93 3b 03 	sts	0x033B, r24	; 0x80033b <task0.2523+0x7>
-    22be:	90 93 3c 03 	sts	0x033C, r25	; 0x80033c <task0.2523+0x8>
+    22a2:	60 93 35 03 	sts	0x0335, r22	; 0x800335 <task0.2427+0x1>
+    22a6:	70 93 36 03 	sts	0x0336, r23	; 0x800336 <task0.2427+0x2>
+    22aa:	80 93 37 03 	sts	0x0337, r24	; 0x800337 <task0.2427+0x3>
+    22ae:	90 93 38 03 	sts	0x0338, r25	; 0x800338 <task0.2427+0x4>
+    22b2:	60 93 39 03 	sts	0x0339, r22	; 0x800339 <task0.2427+0x5>
+    22b6:	70 93 3a 03 	sts	0x033A, r23	; 0x80033a <task0.2427+0x6>
+    22ba:	80 93 3b 03 	sts	0x033B, r24	; 0x80033b <task0.2427+0x7>
+    22be:	90 93 3c 03 	sts	0x033C, r25	; 0x80033c <task0.2427+0x8>
     22c2:	27 eb       	ldi	r18, 0xB7	; 183
     22c4:	34 e0       	ldi	r19, 0x04	; 4
-    22c6:	30 93 3e 03 	sts	0x033E, r19	; 0x80033e <task0.2523+0xa>
-    22ca:	20 93 3d 03 	sts	0x033D, r18	; 0x80033d <task0.2523+0x9>
-    22ce:	10 92 29 03 	sts	0x0329, r1	; 0x800329 <task1.2524>
-    22d2:	60 93 2a 03 	sts	0x032A, r22	; 0x80032a <task1.2524+0x1>
-    22d6:	70 93 2b 03 	sts	0x032B, r23	; 0x80032b <task1.2524+0x2>
-    22da:	80 93 2c 03 	sts	0x032C, r24	; 0x80032c <task1.2524+0x3>
-    22de:	90 93 2d 03 	sts	0x032D, r25	; 0x80032d <task1.2524+0x4>
-    22e2:	60 93 2e 03 	sts	0x032E, r22	; 0x80032e <task1.2524+0x5>
-    22e6:	70 93 2f 03 	sts	0x032F, r23	; 0x80032f <task1.2524+0x6>
-    22ea:	80 93 30 03 	sts	0x0330, r24	; 0x800330 <task1.2524+0x7>
-    22ee:	90 93 31 03 	sts	0x0331, r25	; 0x800331 <task1.2524+0x8>
+    22c6:	30 93 3e 03 	sts	0x033E, r19	; 0x80033e <task0.2427+0xa>
+    22ca:	20 93 3d 03 	sts	0x033D, r18	; 0x80033d <task0.2427+0x9>
+    22ce:	10 92 29 03 	sts	0x0329, r1	; 0x800329 <task1.2428>
+    22d2:	60 93 2a 03 	sts	0x032A, r22	; 0x80032a <task1.2428+0x1>
+    22d6:	70 93 2b 03 	sts	0x032B, r23	; 0x80032b <task1.2428+0x2>
+    22da:	80 93 2c 03 	sts	0x032C, r24	; 0x80032c <task1.2428+0x3>
+    22de:	90 93 2d 03 	sts	0x032D, r25	; 0x80032d <task1.2428+0x4>
+    22e2:	60 93 2e 03 	sts	0x032E, r22	; 0x80032e <task1.2428+0x5>
+    22e6:	70 93 2f 03 	sts	0x032F, r23	; 0x80032f <task1.2428+0x6>
+    22ea:	80 93 30 03 	sts	0x0330, r24	; 0x800330 <task1.2428+0x7>
+    22ee:	90 93 31 03 	sts	0x0331, r25	; 0x800331 <task1.2428+0x8>
     22f2:	21 e8       	ldi	r18, 0x81	; 129
     22f4:	35 e0       	ldi	r19, 0x05	; 5
-    22f6:	30 93 33 03 	sts	0x0333, r19	; 0x800333 <task1.2524+0xa>
-    22fa:	20 93 32 03 	sts	0x0332, r18	; 0x800332 <task1.2524+0x9>
-    22fe:	10 92 1e 03 	sts	0x031E, r1	; 0x80031e <task2.2525>
-    2302:	60 93 1f 03 	sts	0x031F, r22	; 0x80031f <task2.2525+0x1>
-    2306:	70 93 20 03 	sts	0x0320, r23	; 0x800320 <task2.2525+0x2>
-    230a:	80 93 21 03 	sts	0x0321, r24	; 0x800321 <task2.2525+0x3>
-    230e:	90 93 22 03 	sts	0x0322, r25	; 0x800322 <task2.2525+0x4>
-    2312:	60 93 23 03 	sts	0x0323, r22	; 0x800323 <task2.2525+0x5>
-    2316:	70 93 24 03 	sts	0x0324, r23	; 0x800324 <task2.2525+0x6>
-    231a:	80 93 25 03 	sts	0x0325, r24	; 0x800325 <task2.2525+0x7>
-    231e:	90 93 26 03 	sts	0x0326, r25	; 0x800326 <task2.2525+0x8>
+    22f6:	30 93 33 03 	sts	0x0333, r19	; 0x800333 <task1.2428+0xa>
+    22fa:	20 93 32 03 	sts	0x0332, r18	; 0x800332 <task1.2428+0x9>
+    22fe:	10 92 1e 03 	sts	0x031E, r1	; 0x80031e <task2.2429>
+    2302:	60 93 1f 03 	sts	0x031F, r22	; 0x80031f <task2.2429+0x1>
+    2306:	70 93 20 03 	sts	0x0320, r23	; 0x800320 <task2.2429+0x2>
+    230a:	80 93 21 03 	sts	0x0321, r24	; 0x800321 <task2.2429+0x3>
+    230e:	90 93 22 03 	sts	0x0322, r25	; 0x800322 <task2.2429+0x4>
+    2312:	60 93 23 03 	sts	0x0323, r22	; 0x800323 <task2.2429+0x5>
+    2316:	70 93 24 03 	sts	0x0324, r23	; 0x800324 <task2.2429+0x6>
+    231a:	80 93 25 03 	sts	0x0325, r24	; 0x800325 <task2.2429+0x7>
+    231e:	90 93 26 03 	sts	0x0326, r25	; 0x800326 <task2.2429+0x8>
     2322:	28 ea       	ldi	r18, 0xA8	; 168
     2324:	33 e0       	ldi	r19, 0x03	; 3
-    2326:	30 93 28 03 	sts	0x0328, r19	; 0x800328 <task2.2525+0xa>
-    232a:	20 93 27 03 	sts	0x0327, r18	; 0x800327 <task2.2525+0x9>
-    232e:	10 92 13 03 	sts	0x0313, r1	; 0x800313 <task3.2526>
-    2332:	60 93 14 03 	sts	0x0314, r22	; 0x800314 <task3.2526+0x1>
-    2336:	70 93 15 03 	sts	0x0315, r23	; 0x800315 <task3.2526+0x2>
-    233a:	80 93 16 03 	sts	0x0316, r24	; 0x800316 <task3.2526+0x3>
-    233e:	90 93 17 03 	sts	0x0317, r25	; 0x800317 <task3.2526+0x4>
-    2342:	60 93 18 03 	sts	0x0318, r22	; 0x800318 <task3.2526+0x5>
-    2346:	70 93 19 03 	sts	0x0319, r23	; 0x800319 <task3.2526+0x6>
-    234a:	80 93 1a 03 	sts	0x031A, r24	; 0x80031a <task3.2526+0x7>
-    234e:	90 93 1b 03 	sts	0x031B, r25	; 0x80031b <task3.2526+0x8>
+    2326:	30 93 28 03 	sts	0x0328, r19	; 0x800328 <task2.2429+0xa>
+    232a:	20 93 27 03 	sts	0x0327, r18	; 0x800327 <task2.2429+0x9>
+    232e:	10 92 13 03 	sts	0x0313, r1	; 0x800313 <task3.2430>
+    2332:	60 93 14 03 	sts	0x0314, r22	; 0x800314 <task3.2430+0x1>
+    2336:	70 93 15 03 	sts	0x0315, r23	; 0x800315 <task3.2430+0x2>
+    233a:	80 93 16 03 	sts	0x0316, r24	; 0x800316 <task3.2430+0x3>
+    233e:	90 93 17 03 	sts	0x0317, r25	; 0x800317 <task3.2430+0x4>
+    2342:	60 93 18 03 	sts	0x0318, r22	; 0x800318 <task3.2430+0x5>
+    2346:	70 93 19 03 	sts	0x0319, r23	; 0x800319 <task3.2430+0x6>
+    234a:	80 93 1a 03 	sts	0x031A, r24	; 0x80031a <task3.2430+0x7>
+    234e:	90 93 1b 03 	sts	0x031B, r25	; 0x80031b <task3.2430+0x8>
     2352:	2c ed       	ldi	r18, 0xDC	; 220
     2354:	38 e0       	ldi	r19, 0x08	; 8
-    2356:	30 93 1d 03 	sts	0x031D, r19	; 0x80031d <task3.2526+0xa>
-    235a:	20 93 1c 03 	sts	0x031C, r18	; 0x80031c <task3.2526+0x9>
-    235e:	10 92 08 03 	sts	0x0308, r1	; 0x800308 <task4.2527>
-    2362:	60 93 09 03 	sts	0x0309, r22	; 0x800309 <task4.2527+0x1>
-    2366:	70 93 0a 03 	sts	0x030A, r23	; 0x80030a <task4.2527+0x2>
-    236a:	80 93 0b 03 	sts	0x030B, r24	; 0x80030b <task4.2527+0x3>
-    236e:	90 93 0c 03 	sts	0x030C, r25	; 0x80030c <task4.2527+0x4>
-    2372:	60 93 0d 03 	sts	0x030D, r22	; 0x80030d <task4.2527+0x5>
-    2376:	70 93 0e 03 	sts	0x030E, r23	; 0x80030e <task4.2527+0x6>
-    237a:	80 93 0f 03 	sts	0x030F, r24	; 0x80030f <task4.2527+0x7>
-    237e:	90 93 10 03 	sts	0x0310, r25	; 0x800310 <task4.2527+0x8>
+    2356:	30 93 1d 03 	sts	0x031D, r19	; 0x80031d <task3.2430+0xa>
+    235a:	20 93 1c 03 	sts	0x031C, r18	; 0x80031c <task3.2430+0x9>
+    235e:	10 92 08 03 	sts	0x0308, r1	; 0x800308 <task4.2431>
+    2362:	60 93 09 03 	sts	0x0309, r22	; 0x800309 <task4.2431+0x1>
+    2366:	70 93 0a 03 	sts	0x030A, r23	; 0x80030a <task4.2431+0x2>
+    236a:	80 93 0b 03 	sts	0x030B, r24	; 0x80030b <task4.2431+0x3>
+    236e:	90 93 0c 03 	sts	0x030C, r25	; 0x80030c <task4.2431+0x4>
+    2372:	60 93 0d 03 	sts	0x030D, r22	; 0x80030d <task4.2431+0x5>
+    2376:	70 93 0e 03 	sts	0x030E, r23	; 0x80030e <task4.2431+0x6>
+    237a:	80 93 0f 03 	sts	0x030F, r24	; 0x80030f <task4.2431+0x7>
+    237e:	90 93 10 03 	sts	0x0310, r25	; 0x800310 <task4.2431+0x8>
     2382:	27 ed       	ldi	r18, 0xD7	; 215
     2384:	3d e0       	ldi	r19, 0x0D	; 13
-    2386:	30 93 12 03 	sts	0x0312, r19	; 0x800312 <task4.2527+0xa>
-    238a:	20 93 11 03 	sts	0x0311, r18	; 0x800311 <task4.2527+0x9>
-    238e:	10 92 fd 02 	sts	0x02FD, r1	; 0x8002fd <task5.2528>
-    2392:	60 93 fe 02 	sts	0x02FE, r22	; 0x8002fe <task5.2528+0x1>
-    2396:	70 93 ff 02 	sts	0x02FF, r23	; 0x8002ff <task5.2528+0x2>
-    239a:	80 93 00 03 	sts	0x0300, r24	; 0x800300 <task5.2528+0x3>
-    239e:	90 93 01 03 	sts	0x0301, r25	; 0x800301 <task5.2528+0x4>
-    23a2:	60 93 02 03 	sts	0x0302, r22	; 0x800302 <task5.2528+0x5>
-    23a6:	70 93 03 03 	sts	0x0303, r23	; 0x800303 <task5.2528+0x6>
-    23aa:	80 93 04 03 	sts	0x0304, r24	; 0x800304 <task5.2528+0x7>
-    23ae:	90 93 05 03 	sts	0x0305, r25	; 0x800305 <task5.2528+0x8>
+    2386:	30 93 12 03 	sts	0x0312, r19	; 0x800312 <task4.2431+0xa>
+    238a:	20 93 11 03 	sts	0x0311, r18	; 0x800311 <task4.2431+0x9>
+    238e:	10 92 fd 02 	sts	0x02FD, r1	; 0x8002fd <task5.2432>
+    2392:	60 93 fe 02 	sts	0x02FE, r22	; 0x8002fe <task5.2432+0x1>
+    2396:	70 93 ff 02 	sts	0x02FF, r23	; 0x8002ff <task5.2432+0x2>
+    239a:	80 93 00 03 	sts	0x0300, r24	; 0x800300 <task5.2432+0x3>
+    239e:	90 93 01 03 	sts	0x0301, r25	; 0x800301 <task5.2432+0x4>
+    23a2:	60 93 02 03 	sts	0x0302, r22	; 0x800302 <task5.2432+0x5>
+    23a6:	70 93 03 03 	sts	0x0303, r23	; 0x800303 <task5.2432+0x6>
+    23aa:	80 93 04 03 	sts	0x0304, r24	; 0x800304 <task5.2432+0x7>
+    23ae:	90 93 05 03 	sts	0x0305, r25	; 0x800305 <task5.2432+0x8>
     23b2:	2b ef       	ldi	r18, 0xFB	; 251
     23b4:	33 e0       	ldi	r19, 0x03	; 3
-    23b6:	30 93 07 03 	sts	0x0307, r19	; 0x800307 <task5.2528+0xa>
-    23ba:	20 93 06 03 	sts	0x0306, r18	; 0x800306 <task5.2528+0x9>
-    23be:	10 92 f2 02 	sts	0x02F2, r1	; 0x8002f2 <task6.2529>
-    23c2:	60 93 f3 02 	sts	0x02F3, r22	; 0x8002f3 <task6.2529+0x1>
-    23c6:	70 93 f4 02 	sts	0x02F4, r23	; 0x8002f4 <task6.2529+0x2>
-    23ca:	80 93 f5 02 	sts	0x02F5, r24	; 0x8002f5 <task6.2529+0x3>
-    23ce:	90 93 f6 02 	sts	0x02F6, r25	; 0x8002f6 <task6.2529+0x4>
-    23d2:	60 93 f7 02 	sts	0x02F7, r22	; 0x8002f7 <task6.2529+0x5>
-    23d6:	70 93 f8 02 	sts	0x02F8, r23	; 0x8002f8 <task6.2529+0x6>
-    23da:	80 93 f9 02 	sts	0x02F9, r24	; 0x8002f9 <task6.2529+0x7>
-    23de:	90 93 fa 02 	sts	0x02FA, r25	; 0x8002fa <task6.2529+0x8>
+    23b6:	30 93 07 03 	sts	0x0307, r19	; 0x800307 <task5.2432+0xa>
+    23ba:	20 93 06 03 	sts	0x0306, r18	; 0x800306 <task5.2432+0x9>
+    23be:	10 92 f2 02 	sts	0x02F2, r1	; 0x8002f2 <task6.2433>
+    23c2:	60 93 f3 02 	sts	0x02F3, r22	; 0x8002f3 <task6.2433+0x1>
+    23c6:	70 93 f4 02 	sts	0x02F4, r23	; 0x8002f4 <task6.2433+0x2>
+    23ca:	80 93 f5 02 	sts	0x02F5, r24	; 0x8002f5 <task6.2433+0x3>
+    23ce:	90 93 f6 02 	sts	0x02F6, r25	; 0x8002f6 <task6.2433+0x4>
+    23d2:	60 93 f7 02 	sts	0x02F7, r22	; 0x8002f7 <task6.2433+0x5>
+    23d6:	70 93 f8 02 	sts	0x02F8, r23	; 0x8002f8 <task6.2433+0x6>
+    23da:	80 93 f9 02 	sts	0x02F9, r24	; 0x8002f9 <task6.2433+0x7>
+    23de:	90 93 fa 02 	sts	0x02FA, r25	; 0x8002fa <task6.2433+0x8>
     23e2:	2f e6       	ldi	r18, 0x6F	; 111
     23e4:	30 e1       	ldi	r19, 0x10	; 16
-    23e6:	30 93 fc 02 	sts	0x02FC, r19	; 0x8002fc <task6.2529+0xa>
-    23ea:	20 93 fb 02 	sts	0x02FB, r18	; 0x8002fb <task6.2529+0x9>
-    23ee:	10 92 e7 02 	sts	0x02E7, r1	; 0x8002e7 <task7.2530>
-    23f2:	60 93 e8 02 	sts	0x02E8, r22	; 0x8002e8 <task7.2530+0x1>
-    23f6:	70 93 e9 02 	sts	0x02E9, r23	; 0x8002e9 <task7.2530+0x2>
-    23fa:	80 93 ea 02 	sts	0x02EA, r24	; 0x8002ea <task7.2530+0x3>
-    23fe:	90 93 eb 02 	sts	0x02EB, r25	; 0x8002eb <task7.2530+0x4>
-    2402:	60 93 ec 02 	sts	0x02EC, r22	; 0x8002ec <task7.2530+0x5>
-    2406:	70 93 ed 02 	sts	0x02ED, r23	; 0x8002ed <task7.2530+0x6>
-    240a:	80 93 ee 02 	sts	0x02EE, r24	; 0x8002ee <task7.2530+0x7>
-    240e:	90 93 ef 02 	sts	0x02EF, r25	; 0x8002ef <task7.2530+0x8>
+    23e6:	30 93 fc 02 	sts	0x02FC, r19	; 0x8002fc <task6.2433+0xa>
+    23ea:	20 93 fb 02 	sts	0x02FB, r18	; 0x8002fb <task6.2433+0x9>
+    23ee:	10 92 e7 02 	sts	0x02E7, r1	; 0x8002e7 <task7.2434>
+    23f2:	60 93 e8 02 	sts	0x02E8, r22	; 0x8002e8 <task7.2434+0x1>
+    23f6:	70 93 e9 02 	sts	0x02E9, r23	; 0x8002e9 <task7.2434+0x2>
+    23fa:	80 93 ea 02 	sts	0x02EA, r24	; 0x8002ea <task7.2434+0x3>
+    23fe:	90 93 eb 02 	sts	0x02EB, r25	; 0x8002eb <task7.2434+0x4>
+    2402:	60 93 ec 02 	sts	0x02EC, r22	; 0x8002ec <task7.2434+0x5>
+    2406:	70 93 ed 02 	sts	0x02ED, r23	; 0x8002ed <task7.2434+0x6>
+    240a:	80 93 ee 02 	sts	0x02EE, r24	; 0x8002ee <task7.2434+0x7>
+    240e:	90 93 ef 02 	sts	0x02EF, r25	; 0x8002ef <task7.2434+0x8>
     2412:	20 ed       	ldi	r18, 0xD0	; 208
     2414:	35 e0       	ldi	r19, 0x05	; 5
-    2416:	30 93 f1 02 	sts	0x02F1, r19	; 0x8002f1 <task7.2530+0xa>
-    241a:	20 93 f0 02 	sts	0x02F0, r18	; 0x8002f0 <task7.2530+0x9>
-    241e:	10 92 dc 02 	sts	0x02DC, r1	; 0x8002dc <task8.2531>
-    2422:	60 93 dd 02 	sts	0x02DD, r22	; 0x8002dd <task8.2531+0x1>
-    2426:	70 93 de 02 	sts	0x02DE, r23	; 0x8002de <task8.2531+0x2>
-    242a:	80 93 df 02 	sts	0x02DF, r24	; 0x8002df <task8.2531+0x3>
-    242e:	90 93 e0 02 	sts	0x02E0, r25	; 0x8002e0 <task8.2531+0x4>
-    2432:	60 93 e1 02 	sts	0x02E1, r22	; 0x8002e1 <task8.2531+0x5>
-    2436:	70 93 e2 02 	sts	0x02E2, r23	; 0x8002e2 <task8.2531+0x6>
-    243a:	80 93 e3 02 	sts	0x02E3, r24	; 0x8002e3 <task8.2531+0x7>
-    243e:	90 93 e4 02 	sts	0x02E4, r25	; 0x8002e4 <task8.2531+0x8>
+    2416:	30 93 f1 02 	sts	0x02F1, r19	; 0x8002f1 <task7.2434+0xa>
+    241a:	20 93 f0 02 	sts	0x02F0, r18	; 0x8002f0 <task7.2434+0x9>
+    241e:	10 92 dc 02 	sts	0x02DC, r1	; 0x8002dc <task8.2435>
+    2422:	60 93 dd 02 	sts	0x02DD, r22	; 0x8002dd <task8.2435+0x1>
+    2426:	70 93 de 02 	sts	0x02DE, r23	; 0x8002de <task8.2435+0x2>
+    242a:	80 93 df 02 	sts	0x02DF, r24	; 0x8002df <task8.2435+0x3>
+    242e:	90 93 e0 02 	sts	0x02E0, r25	; 0x8002e0 <task8.2435+0x4>
+    2432:	60 93 e1 02 	sts	0x02E1, r22	; 0x8002e1 <task8.2435+0x5>
+    2436:	70 93 e2 02 	sts	0x02E2, r23	; 0x8002e2 <task8.2435+0x6>
+    243a:	80 93 e3 02 	sts	0x02E3, r24	; 0x8002e3 <task8.2435+0x7>
+    243e:	90 93 e4 02 	sts	0x02E4, r25	; 0x8002e4 <task8.2435+0x8>
     2442:	26 e2       	ldi	r18, 0x26	; 38
     2444:	33 e0       	ldi	r19, 0x03	; 3
-    2446:	30 93 e6 02 	sts	0x02E6, r19	; 0x8002e6 <task8.2531+0xa>
-    244a:	20 93 e5 02 	sts	0x02E5, r18	; 0x8002e5 <task8.2531+0x9>
+    2446:	30 93 e6 02 	sts	0x02E6, r19	; 0x8002e6 <task8.2435+0xa>
+    244a:	20 93 e5 02 	sts	0x02E5, r18	; 0x8002e5 <task8.2435+0x9>
     244e:	0e 94 e0 04 	call	0x9c0	; 0x9c0 <TimerSet>
     2452:	0e 94 f1 04 	call	0x9e2	; 0x9e2 <TimerOn>
     2456:	0e 94 6b 02 	call	0x4d6	; 0x4d6 <Custom_LCD_Init>
@@ -5174,8 +5174,8 @@ Disassembly of section .text:
     2e8a:	30 91 03 01 	lds	r19, 0x0103	; 0x800103 <__malloc_heap_start+0x1>
     2e8e:	30 93 7c 05 	sts	0x057C, r19	; 0x80057c <__brkval+0x1>
     2e92:	20 93 7b 05 	sts	0x057B, r18	; 0x80057b <__brkval>
-    2e96:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__data_start>
-    2e9a:	30 91 01 01 	lds	r19, 0x0101	; 0x800101 <__data_start+0x1>
+    2e96:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+    2e9a:	30 91 01 01 	lds	r19, 0x0101	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
     2e9e:	21 15       	cp	r18, r1
     2ea0:	31 05       	cpc	r19, r1
     2ea2:	41 f4       	brne	.+16     	; 0x2eb4 <malloc+0xea>

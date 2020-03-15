@@ -1,3 +1,9 @@
+/*	Author: Jeremy Carleton jcarl023@ucr.edu
+ *	Lab Section: 021
+ *	Assignment: Custom Lab Project
+ *	I acknowledge all content contained herein, excluding template or example
+ *	code, is my own original work.
+ */
 #ifndef SCOREDISPLAY_H_
 #define SCOREDISPLAY_H_
 
@@ -83,7 +89,8 @@ int SD_Tick(int state) {
 	}
 	return state;
 }
-
+/* Saves the score passed into argument 2 to the memory addresses corresponding to the
+	position passed into argument 1, shifting other scores to new positions as needed */
 void WriteScoreAndUpdateList(unsigned char pos, unsigned long score) {
 	unsigned char i;
 	unsigned long scoreToMove;
@@ -94,7 +101,8 @@ void WriteScoreAndUpdateList(unsigned char pos, unsigned long score) {
 	}
 	WriteScore(pos,score);
 }
-
+/* Returns the correct position for a score in order to maintain an order from highest
+	score to lowest score */
 unsigned char GetScorePosition(unsigned long score) {
 	unsigned char i;
 	for (i = 1; i <= 10; i++) {
@@ -107,7 +115,8 @@ unsigned char GetScorePosition(unsigned long score) {
 	}
 	return 0;
 }
-
+/* Reads the four EEPROM addresses where a score is stored and calculates the actual 
+	score through bit shifts and addition */
 unsigned long ReadScore(unsigned char pos) {
 	unsigned long retScore = 0;
 	unsigned char i;
@@ -117,7 +126,8 @@ unsigned long ReadScore(unsigned char pos) {
 	}																		// in the first of the four addresses
 	return retScore;
 }
-
+/* Writes the score passed in argument 2 to the addresses corresponding to the 
+	position passed in argument 1 by splitting it into 4 bytes */
 void WriteScore(unsigned char pos, unsigned long score) {
 	unsigned char i;
 	unsigned char addr = EEPROM_START_ADDRESS + (pos-1)*4;
@@ -128,7 +138,7 @@ void WriteScore(unsigned char pos, unsigned long score) {
 		EEPROM_StoreByte(addr + i,byteToStore);
 	}
 }
-
+// Overwrites all addresses used for storing scores with zeroes
 void WipeMemory() {
 	unsigned char i;
 	for (i = 0; i < 40; i++) {

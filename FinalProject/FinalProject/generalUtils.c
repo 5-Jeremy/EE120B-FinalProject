@@ -1,3 +1,9 @@
+/*	Author: Jeremy Carleton jcarl023@ucr.edu
+ *	Lab Section: 021
+ *	Assignment: Custom Lab Project
+ *	I acknowledge all content contained herein, excluding template or example
+ *	code, is my own original work.
+ */
 // Returns the number of digits in num
 unsigned char GetNumDigits_us(unsigned short num) {
 	if (num < 10) {
@@ -27,6 +33,7 @@ void IntToString(unsigned short num, unsigned char *str) {
 	}
 }
 
+// Returns the number of digits in num
 unsigned char GetNumDigits_ul(unsigned long num) {
 	unsigned char i;
 	i = 1;
@@ -37,6 +44,7 @@ unsigned char GetNumDigits_ul(unsigned long num) {
 	return i;
 }
 
+// Fills the array str with characters corresponding to the digits in num
 void IntToString_ul(unsigned long num, unsigned char *str) {
 	unsigned char numDigits = GetNumDigits_ul(num);
 	unsigned char i;

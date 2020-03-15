@@ -1,15 +1,21 @@
+/*	Author: Jeremy Carleton jcarl023@ucr.edu
+ *	Lab Section: 021
+ *	Assignment: Custom Lab Project
+ *	I acknowledge all content contained herein, excluding template or example
+ *	code, is my own original work.
+ */
 #ifndef BUZZERTASK_H_
 #define BUZZERTASK_H_
 // Contains the functions used by the buzzerTask task
 
 #define TIME_MAX (600 + (difficulty*200))
-#define WARN_FREQ_1_1 300
-#define WARN_FREQ_1_2 350
-#define WARN_FREQ_2_1 400
+#define WARN_FREQ_1_1 300	// When on, the buzzer alternates between two frequencies, changing
+#define WARN_FREQ_1_2 350	// after a set number of ticks have passed. The two frequencies used
+#define WARN_FREQ_2_1 400	// depend on how much time has passed
 #define WARN_FREQ_2_2 450
 #define WARN_FREQ_3_1 500
 #define WARN_FREQ_3_2 550
-#define INCORRECT_FREQ 600
+#define INCORRECT_FREQ 600	// Play a distinct tone when an incorrect answer is submitted
 
 enum BT_states {BT_start, BT_wait, BT_warn1, BT_warn2, BT_warn3, BT_incorrect};
 int BT_Tick(int state) {
@@ -25,9 +31,9 @@ int BT_Tick(int state) {
 				state = BT_wait;
 				set_PWM(0);
 			}
-			else if (!QueueIsEmpty(buzzQ)) {
-				QueueDequeue(buzzQ);
-				state = BT_incorrect;
+			else if (!QueueIsEmpty(buzzQ)) {	// A queue is used to notify the buzzer
+				QueueDequeue(buzzQ);			// when an incorrect answer has been submitted
+				state = BT_incorrect;			// so that the needed tone can be played
 				PWM_on();
 				i = 0;
 			}

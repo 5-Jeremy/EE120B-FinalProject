@@ -1,3 +1,9 @@
+/*	Author: Jeremy Carleton jcarl023@ucr.edu
+ *	Lab Section: 021
+ *	Assignment: Custom Lab Project
+ *	I acknowledge all content contained herein, excluding template or example
+ *	code, is my own original work.
+ */
 #define F_CPU 8000000UL
 // Provided headers
 #include <avr/io.h>
@@ -21,7 +27,7 @@
 #define ARROW_CODE 2
 #define TROPHY_CODE 3
 
-// Control which tasks to enable
+// Control which tasks to enable (for testing)
 #define TASK_0_ENABLE 1	// KC
 #define TASK_1_ENABLE 1	// IH
 #define TASK_2_ENABLE 1	// SC
@@ -83,15 +89,16 @@ Queue buzzQ;	// GameMaster	-> buzzerTask
 
 int main(void) 
 {
-	DDRA = 0xFF; PORTA = 0x00;	// LED Array: PA0-4LCD Control Bus: PA6-7
+	// Set Data Direction Registers
+	DDRA = 0xFF; PORTA = 0x00;	// LED Array: PA0-4 LCD Control Bus: PA6-7
     DDRB = 0x7F; PORTB = 0x80;	// Nokia: PB0-PB4 Buzzer: PB6 Reset: PB7
     DDRC = 0xFF; PORTC = 0x00;	// LCD Data Bus
     DDRD = 0xF0; PORTD = 0x0F;	// Keypad
-	
+	// Initialize queues
 	menuQ = QueueInit(1);
 	gameQ = QueueInit(1);
 	buzzQ = QueueInit(1);
-	
+	// Set up task scheduler
 	static task task0,task1,task2,task3,task4,task5,task6,task7,task8;
 	task* tasks[] = {&task0,&task1,&task2,&task3,&task4,&task5,&task6,&task7,&task8};
 	const unsigned short numTasks = sizeof(tasks)/sizeof(task*);
@@ -159,7 +166,7 @@ int main(void)
 	task8.period = GCD;
 	task8.elapsedTime = task8.period;
 	task8.TickFct = &LA_Tick;
-	
+	// Initialize timer and components
 	TimerSet(GCD);
 	TimerOn();
 	Custom_LCD_Init();
@@ -167,7 +174,7 @@ int main(void)
 	LCD_Cursor(1);
 	nokia_lcd_init();
 	nokia_lcd_clear();
-	
+	// Scheduler code from Lab 11, with modifications
 	unsigned short i; //scheduler for loop
 	while (1) {
 		if (!(PINB & 0x80)) {			// When reset button is pressed, all tasks return to their start state
